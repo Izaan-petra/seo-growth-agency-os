@@ -1,0 +1,30 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Credentials and secret files
+credentials/
+*.pem
+*.key
+*.p12
+service-account*.json
+
+# Client-private files
+clients/*/private/
+reports/*/private/
+
+# Raw research exports
+research/raw/*
+!research/raw/.gitkeep
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Temporary files and logs
+*.log
+*.tmp
+
+# Local VS Code settings
+.vscode/settings.json
