@@ -52,12 +52,12 @@ Scores are directional assessments, not precise measurements.
 
 ## 6. Critical findings
 
-| ID | Finding | URL/page type | Evidence | Impact | Recommended fix | Priority |
+| ID | Finding | URL/page type | Evidence | Impact | Recommended fix | Confidence |
 |---|---|---|---|---|---|---|
 
-## 7. Technical SEO roadmap
+## 7. Technical SEO findings and recommendations
 
-| ID | Issue | Evidence | Affected URL/type | Exact fix | Owner | Effort | Priority | Validation |
+| ID | Issue | Evidence | Affected URL/type | Exact fix | Impact | Confidence | Dependencies | Validation |
 |---|---|---|---|---|---|---|---|---|
 
 ## 8. Architecture and internal linking
@@ -65,7 +65,7 @@ Scores are directional assessments, not precise measurements.
 - Current structure
 - Major weaknesses
 - Recommended hierarchy
-- Priority internal-link opportunities
+- Material internal-link opportunities
 
 ## 9. Competitor and SERP analysis
 
@@ -74,20 +74,20 @@ Scores are directional assessments, not precise measurements.
 
 ## 10. Keyword and topic strategy
 
-| Cluster | Intent | Audience stage | Existing/new page | Page type | Business value | Demand | Competition | Priority |
+| Cluster | Intent | Audience stage | Existing/new page | Page type | Business relevance | Demand | Competition | Confidence |
 |---|---|---|---|---|---|---|---|---|
 
 ## 11. Existing content improvements
 
-| URL | Problem | Evidence | Recommended change | Business value | Priority |
+| URL | Problem | Evidence | Recommended change | Business relevance | Confidence |
 |---|---|---|---|---|---|
 
-## 12. New content roadmap
+## 12. New content opportunities
 
-| Proposed title | URL | Page type | Intent | Unique value required | CTA | Priority |
+| Proposed title | URL | Page type | Intent | Unique value required | CTA | Confidence |
 |---|---|---|---|---|---|---|
 
-For high-priority pages, add full briefs using the new-page standard in `SKILL.md`.
+For material page opportunities, add full briefs using the new-page standard in `SKILL.md`.
 
 ## 13. GEO, AEO and AI-search plan
 
@@ -97,7 +97,7 @@ For high-priority pages, add full briefs using the new-page standard in `SKILL.m
 - Original evidence and citation-worthiness
 - Structured data
 - External mentions
-- Priority actions
+- Recommended specialist actions
 
 ## 14. E-E-A-T and authority plan
 
@@ -113,9 +113,9 @@ For high-priority pages, add full briefs using the new-page standard in `SKILL.m
 | URL/page type | Friction | Why it matters | Recommendation | Validation |
 |---|---|---|---|---|
 
-## 16. Prioritized opportunity backlog
+## 16. Director-owned prioritized opportunity backlog
 
-Use the scoring table from `scoring.md`.
+Insert the prioritized backlog supplied by `seo-director`. The blueprint specialist must not independently score or finalize priorities.
 
 Then identify:
 
@@ -125,21 +125,21 @@ Then identify:
 - Highest-risk unresolved issue
 - Most important validation-required item
 
-## 17. First 30 days
+## 17. Director-owned first 30 days
 
-Focus on measurement, critical blockers, quick wins and high-confidence page improvements.
+Insert the approved first-phase plan supplied by `seo-director`.
 
-## 18. Days 31–60
+## 18. Director-owned days 31–60
 
-Focus on architecture, commercial pages, internal linking and initial content execution.
+Insert the approved second-phase plan supplied by `seo-director`.
 
-## 19. Days 61–90
+## 19. Director-owned days 61–90
 
-Focus on content expansion, authority initiatives, testing and iteration.
+Insert the approved third-phase plan supplied by `seo-director`.
 
-## 20. Six-to-twelve-month direction
+## 20. Director-owned six-to-twelve-month direction
 
-Describe sustainable growth initiatives and dependencies.
+Insert the longer-term direction supplied by `seo-director`.
 
 ## 21. KPI and measurement framework
 

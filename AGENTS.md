@@ -1,11 +1,13 @@
 # Project Instructions
 
-This repository contains the `seo-growth-blueprint` skill at:
+This repository contains a modular SEO Agency Operating System with these skills:
 
-`.agents/skills/seo-growth-blueprint/SKILL.md`
+- `.agents/skills/project-intake/SKILL.md` — collect business context, evidence availability, access methods, and constraints.
+- `.agents/skills/seo-director/SKILL.md` — select and coordinate the required specialist workflow and produce the execution plan.
+- `.agents/skills/seo-growth-blueprint/SKILL.md` — produce the complete initial SEO Growth Blueprint.
 
-Use this skill whenever the user requests an SEO audit, SEO strategy, keyword/content plan, competitor analysis, GEO/AEO assessment, link-building campaign, or organic growth roadmap for a website.
+For a new or materially changed engagement, run `project-intake` first and route its structured output to `seo-director`. The director selects and briefs `seo-growth-blueprint` when this specialist execution is required, then consumes its findings to produce the prioritized execution plan.
 
-Before substantial work, run the skill's data-source intake. Use `data-sources.md` to choose API, manual export, screenshot, or public mode; use `integrations.md` for secret handling; and use `data-access.md` for report-specific instructions. If API access is available, require an environment variable or cloud secret and never ask the user to paste a key into chat or commit it to Git. If authenticated data is available without API access, guide the user through safe exports using `data-access.md`. If it is not available, continue in public-data mode. Never request passwords, cookies, recovery codes, or other credentials.
+`project-intake` exclusively owns business discovery, evidence collection, connector detection, data-access selection, export requests, and credential-safety intake. `seo-director` exclusively owns orchestration, routing, delegation, prioritization, sequencing, and execution planning. `seo-growth-blueprint` exclusively owns the selected specialist SEO analysis and specialist QA.
 
-Save final reports to `reports/` and source exports to `research/raw/` when the user asks for files.
+When file output is requested, save generated reports to `reports/`, unchanged source exports to `research/raw/`, and cleaned working artifacts to `research/processed/`. These locations are ignored by default for new generated files; commit a sanitized artifact only through an explicit review decision.

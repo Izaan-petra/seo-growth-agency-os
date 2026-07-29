@@ -101,6 +101,6 @@ Use these statuses: Reviewed—no meaningful issue, Issue found, Opportunity fou
 - Facts and assumptions separated
 - No invented metrics or guarantees
 - Search intent, SERP format, competition and business value considered
-- Recommendations include owners, dependencies and validation
-- 30/60/90-day roadmap is executable
+- Recommendations include evidence, dependencies and validation needs for director review
+- Director-supplied priorities, owners and roadmap are clearly distinguished from specialist output
 - Technical, content, authority, GEO and CRO work are balanced

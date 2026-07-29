@@ -11,12 +11,16 @@ credentials/
 service-account*.json
 
 # Client-private files
-clients/*/private/
-reports/*/private/
+clients/**/private/**
 
-# Raw research exports
+# Generated reports and client research artifacts
+# Existing tracked files remain tracked. Review and force-add only sanitized artifacts intentionally.
+reports/*
+!reports/.gitkeep
 research/raw/*
 !research/raw/.gitkeep
+research/processed/*
+!research/processed/.gitkeep
 
 # Operating-system files
 .DS_Store

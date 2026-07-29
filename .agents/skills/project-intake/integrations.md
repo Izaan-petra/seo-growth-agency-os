@@ -29,6 +29,10 @@ A local `.env` file may be used only when it is excluded from Git. Ensure `.giti
 !.env.example
 research/raw/*
 !research/raw/.gitkeep
+research/processed/*
+!research/processed/.gitkeep
+reports/*
+!reports/.gitkeep
 ```
 
 The example file may list variable names but must never contain real values.
@@ -81,7 +85,9 @@ If an API request fails:
 Treat client exports and API responses as confidential project data.
 
 - Keep raw files in `research/raw/` only when needed.
-- Keep processed files in `research/processed/`.
+- Keep processed files in `research/processed/`; new files there should be ignored by Git by default.
+- Keep generated reports in `reports/`; new files there should be ignored by Git by default.
 - Do not publish private exports in a public repository.
+- Commit a sanitized processed artifact or report only after explicit review, using an intentional force-add when necessary.
 - Avoid storing unnecessary personal data.
 - Remove or archive project data according to the user's policy.

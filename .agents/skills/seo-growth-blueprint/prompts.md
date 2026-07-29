@@ -2,28 +2,11 @@
 
 ## Global rules
 
-Every specialist must be evidence-based, separate facts from assumptions, prioritize business value, and avoid invented metrics.
+Every specialist must be evidence-based, separate facts from assumptions, align recommendations with the business context supplied by intake, and avoid invented metrics.
 
-## 1. Business and Market Analyst
+Use business context from the completed `project-intake` record. Flag contradictions or missing inputs for `seo-director`; do not repeat business discovery, evidence intake, connector detection, prioritization, or execution planning.
 
-### Objective
-Understand the business before recommending SEO.
-
-### Review
-Homepage, navigation, about, contact, service or product pages, pricing, case studies, testimonials, blog, FAQs and forms.
-
-### Output
-- Business model
-- Main offerings
-- Target audience
-- Geographic focus
-- Primary and secondary conversions
-- Differentiators
-- Customer journey
-- Highest-value page types
-- Verified facts, inferences and unknowns
-
-## 2. Technical SEO Specialist
+## 1. Technical SEO Specialist
 
 ### Objective
 Identify technical barriers and scalable improvements.
@@ -32,9 +15,9 @@ Identify technical barriers and scalable improvements.
 Status codes, redirects, robots.txt, XML sitemaps, indexability, canonicals, URL structure, architecture, internal links, mobile usability, performance risks, Core Web Vitals risks, JavaScript rendering, HTTPS, hreflang, pagination, facets, structured data and broken links.
 
 ### Output
-Critical issues, warnings, opportunities, affected URLs, evidence, fix, owner, validation and priority.
+Critical issues, warnings, opportunities, affected URLs, evidence, fix direction, impact, confidence, dependencies and validation.
 
-## 3. Competitor and SERP Analyst
+## 2. Competitor and SERP Analyst
 
 ### Objective
 Understand who competes in organic search and what page types win.
@@ -50,7 +33,7 @@ Business competitors, organic competitors, publishers, directories, forums, mark
 - Authority signals
 - SERP feasibility observations
 
-## 4. Keyword and Intent Strategist
+## 3. Keyword and Intent Strategist
 
 ### Objective
 Create business-aligned topic clusters.
@@ -61,7 +44,7 @@ Transactional, commercial, informational, local, comparison, alternatives, probl
 ### Output for each cluster
 Topic, intent, audience stage, existing/new page, page type, business value, relative demand, relative competition, conversion potential, differentiation angle and priority.
 
-## 5. Content Strategist
+## 4. Content Strategist
 
 ### Objective
 Improve existing content and propose only justified new pages.
@@ -72,10 +55,10 @@ Intent alignment, thin content, duplication, cannibalization, decay, missing com
 ### Output
 - Refresh plan
 - Consolidation or redirect plan
-- New page roadmap
+- New page opportunities
 - Content briefs for high-priority pages
 
-## 6. GEO, AEO and Entity Specialist
+## 5. GEO, AEO and Entity Specialist
 
 ### Objective
 Improve the site’s ability to be understood, trusted, summarized and cited.
@@ -90,7 +73,7 @@ Entity clarity, organization data, brand consistency, author/reviewer identity, 
 - Citation-worthiness improvements
 - External authority opportunities
 
-## 7. Authority and Digital PR Strategist
+## 6. Authority and Digital PR Strategist
 
 ### Objective
 Build sustainable authority.
@@ -99,9 +82,9 @@ Build sustainable authority.
 Linkable assets, original research, expert commentary, partnerships, resource pages, unlinked mentions, relevant directories, local citations, associations, interviews, podcasts, statistics pages, tools and case studies.
 
 ### Output
-A prioritized authority roadmap. Reject spam, paid-link schemes, PBNs, fake reviews and manipulative exchanges.
+Authority opportunities with evidence, expected impact, confidence and dependencies for director review. Reject spam, paid-link schemes, PBNs, fake reviews and manipulative exchanges.
 
-## 8. CRO and UX Analyst
+## 7. CRO and UX Analyst
 
 ### Objective
 Connect organic traffic to business outcomes.
@@ -112,7 +95,7 @@ Message match, CTA clarity, forms, trust elements, pricing clarity, navigation, 
 ### Output
 SEO+CRO recommendations with affected pages, evidence, expected outcome and validation method.
 
-## 9. Measurement Strategist
+## 8. Measurement Strategist
 
 ### Objective
 Define what should be measured after implementation.
@@ -120,18 +103,7 @@ Define what should be measured after implementation.
 ### Output
 Recommended setup and KPIs for Search Console, GA4, Bing Webmaster Tools, rank tracking, backlink monitoring, crawl monitoring, Core Web Vitals, organic conversions, branded/non-branded visibility and AI mentions.
 
-## 10. Prioritization Specialist
-
-Use `scoring.md` and produce:
-
-- Top five immediate actions
-- Top ten 90-day priorities
-- Quick wins
-- Strategic projects
-- Deferred opportunities
-- Validation-required items
-
-## 11. Senior QA Reviewer
+## 9. Senior QA Reviewer
 
 Use `checklists.md` and confirm:
 
@@ -140,34 +112,16 @@ Use `checklists.md` and confirm:
 - Facts separated from assumptions
 - Search intent and SERP format considered
 - Recommendations are executable
-- Dependencies are respected
-- Qualified traffic and conversions are prioritized
+- Dependencies are identified for director review
+- Recommendations remain aligned with qualified traffic and conversions
 - GEO, technical, content, authority and CRO are balanced
 - No guarantees or manipulative tactics
 
-## 12. Final Report Generator
+## 10. Specialist Report Generator
 
-Use `templates.md`. The final report must be understandable to executives and executable by SEO, content and development teams.
+Use `templates.md`. The specialist report must clearly distinguish findings from director-owned prioritization and execution planning.
 
-
-## 13. Data Access Coordinator
-
-### Objective
-Use available first-party and third-party data without blocking users who lack access.
-
-### Process
-1. Identify the current objective: audit, recovery, content planning, competitor analysis, link building, reporting, or forecasting.
-2. Ask whether the user has GSC, GA4, Bing Webmaster Tools, Ahrefs, or equivalent access.
-3. Select the smallest request pack from `data-access.md`.
-4. Tell the user exactly where to navigate, which filters and date range to use, and which format to export.
-5. Validate uploaded files before using them.
-6. Log gaps and limitations.
-7. Continue with public evidence when access is unavailable.
-
-### Security rules
-Never ask for passwords, cookies, recovery codes, API secrets in chat, or account sharing. The user signs in themselves. Prefer exports over persistent credentials.
-
-## 14. Link Building Campaign Specialist
+## 11. Link Building Campaign Specialist
 
 ### Objective
 Design an ethical, evidence-based link acquisition campaign for a specific website and target pages.
@@ -182,8 +136,8 @@ Design an ethical, evidence-based link acquisition campaign for a specific websi
 - Known competitors
 - Outreach capacity and constraints
 
-### Ahrefs-assisted workflow
-Use the Link Building Request Pack in `data-access.md`. Ask only for the exports needed for the campaign stage. Typical inputs include Backlinks, Referring Domains, Anchors, Best by Links, Link Intersect, Competing Domains, Organic Competitors, Content Gap, and Broken Backlinks.
+### Evidence use
+Use only the backlink and keyword evidence approved in the intake record. If a required export is missing, return the evidence gap to `project-intake` through `seo-director`; do not run a separate access intake.
 
 ### Outputs
 - Baseline backlink profile and risk notes
@@ -194,7 +148,7 @@ Use the Link Building Request Pack in `data-access.md`. Ask only for the exports
 - Anchor-text guardrails
 - Outreach angles and templates
 - Reclamation and broken-link opportunities
-- 30/60/90-day campaign
+- Campaign actions and dependencies for director sequencing
 - Tracking sheet fields and KPIs
 
 ### Guardrails
