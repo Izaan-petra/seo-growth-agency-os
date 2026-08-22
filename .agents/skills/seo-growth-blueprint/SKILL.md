@@ -1,149 +1,87 @@
 ---
 name: seo-growth-blueprint
-description: Execute an evidence-based SEO Growth Blueprint covering technical SEO, architecture, competitors and SERPs, keywords and intent, content, GEO/AEO, authority, CRO, measurement, and QA. Use after project-intake supplies business and evidence context and seo-director selects this specialist workflow, or when the user explicitly requests this known deliverable with a current intake already available.
+description: Assemble and quality-check a complete, evidence-based SEO Growth Blueprint from a completed project intake, director brief, and selected specialist results. Use when seo-director requests an integrated client-ready blueprint; use focused specialist skills directly for narrow workstreams.
 ---
 
 # SEO Growth Blueprint
 
 ## Objective
 
-Execute the specialist SEO analysis selected by `seo-director` and return evidence-backed findings and recommendations. Consume the business context, goals, audiences, markets, conversions, constraints, evidence inventory, and access decisions from `project-intake`.
+Assemble selected specialist results into one coherent Growth Blueprint and run cross-domain QA. Preserve evidence, confidence, limitations, dependencies, and specialist provenance.
 
-Do not repeat business discovery or data-access intake. Do not orchestrate other skills, score final priorities, sequence implementation, assign the final roadmap, or produce the engagement execution plan.
+Do not repeat business discovery, collect evidence, detect connectors, execute missing specialist work, route or delegate skills, settle strategic conflicts, score final priorities, assign owners, or create the execution plan.
 
-If no current intake record exists, route to `../project-intake/SKILL.md` before substantial work. If no director brief exists, return specialist findings for `../seo-director/SKILL.md` to prioritize and convert into the execution plan.
+If the intake, director brief, or required specialist results are missing, return the gap to `../seo-director/SKILL.md` rather than silently filling it.
 
-## Specialist scope
-
-Execute only the workstreams selected in the director brief:
-
-- Technical SEO and site architecture
-- Competitor and SERP analysis
-- Keyword and search-intent strategy
-- Existing-content assessment and new-page opportunities
-- GEO, AEO, entity, and AI-search readiness
-- Authority, trust, E-E-A-T, digital PR, and ethical link acquisition
-- CRO and UX observations connected to organic journeys
-- Measurement recommendations
-- Specialist QA and report assembly
-
-Use business facts supplied by the intake to judge relevance and business value. Flag missing or stale inputs for the director instead of rediscovering the business from scratch.
-
-## Inputs
-
-Require or explicitly mark unavailable:
+## Required inputs
 
 - Completed `project-intake` record
-- Director-selected workstreams and acceptance criteria
-- Target website, markets, languages, and scope
-- Permitted evidence sources and their limitations
-- Requested specialist output
+- Director brief identifying included and excluded workstreams
+- Completed results from every selected specialist
+- Approved evidence limitations and report audience
+- Director-supplied priorities and execution-plan sections when the final report should include them
 
-Proceed in public-evidence mode when the intake confirms authenticated data is unavailable. Do not block a URL-only assessment after intake has classified the evidence gap.
+Each specialist result should follow `../seo-director/specialist-contract.md` and retain stable IDs.
 
 ## References
 
-Read only the files needed for the selected workstreams:
+- Read `checklists.md` for integrated coverage and QA.
+- Read `templates.md` for the report structure.
+- Read `examples.md` for recommendation and confidence-label quality.
 
-- `prompts.md` for specialist execution workflows
-- `checklists.md` for specialist coverage and QA
-- `templates.md` for the blueprint report structure
-- `examples.md` for recommendation and confidence-label quality
+## Assembly workflow
 
-Data-source selection, connector detection, export requests, and secret handling belong to `project-intake`. Prioritization and execution planning belong to `seo-director`.
-
-## Execution workflow
-
-1. Read the intake record and director brief.
-2. Validate the target URL and preferred host as technical evidence, without repeating business intake.
-3. Execute only the selected specialist workstreams from `prompts.md`.
-4. Cite website-specific evidence and exact URLs where possible.
-5. Separate verified findings, suspected risks, inferences, assumptions, and validation needs.
-6. Produce actionable specialist recommendations with impact and confidence evidence.
-7. Run specialist QA using `checklists.md`.
-8. Assemble the selected specialist sections using `templates.md`; leave director-owned planning sections for `seo-director`.
-9. Return the specialist output to `seo-director` for prioritization, sequencing, ownership, and execution planning.
+1. Confirm the inputs match the director brief and list missing workstreams.
+2. Carry the intake facts into the business-context section without rediscovery.
+3. Organize specialist findings into the matching report sections.
+4. Preserve specialist IDs and source limitations so every material claim is traceable.
+5. Consolidate exact duplicate wording without discarding distinct evidence or dependencies.
+6. Surface contradictions, unresolved gaps, and cross-workstream dependencies for the director; do not decide them.
+7. Adapt the scope notice to the evidence actually supplied.
+8. Run integrated QA using `checklists.md`.
+9. Leave director-owned prioritization and roadmap sections empty or insert only content explicitly supplied by `seo-director`.
+10. Return the assembled blueprint and QA notes to `seo-director`.
 
 ## Evidence rules
 
-Never invent:
+Never invent search volumes, rankings, traffic, backlinks, conversions, revenue, indexation, competitor performance, forecasts, or AI citations.
 
-- Search volumes
-- Rankings
-- Organic traffic
-- Backlinks
-- Conversion rates
-- Revenue
-- Indexed-page counts
-- Competitor performance
-- Traffic forecasts
-- AI citations
+Keep these labels distinct:
 
-Use exact figures only when supported by an intake-approved source. Otherwise use qualitative labels such as High, Medium, Low, Short-term, Medium-term, Long-term, and Requires validation.
+- Verified
+- Source-backed estimate
+- High-, medium-, or low-confidence inference
+- Could not verify
+- Requires first-party validation
+
+Do not upgrade a specialist's confidence without stronger evidence.
 
 Do not guarantee rankings, traffic, leads, or revenue.
-
-## Specialist recommendation standard
-
-For each material recommendation, provide:
-
-- Finding or recommendation
-- Affected URL or page type
-- Classification
-- Evidence
-- Why it matters
-- Exact implementation direction
-- Expected strategic outcome
-- Business relevance based on intake
-- Estimated impact
-- Confidence
-- Estimated effort
-- Dependencies or validation needs
-- Suggested validation method and success measure
-
-Impact, confidence, and effort are specialist estimates for director review, not final prioritization. Do not assign the final priority, owner, phase, or roadmap position.
-
-## New-page standard
-
-For every justified page proposal, provide:
-
-- Proposed title and URL
-- Page type
-- Target audience from intake
-- Search intent
-- Primary and supporting topics/entities
-- Required sections and questions
-- Unique value or evidence required
-- Internal links in and out
-- CTA
-- Structured-data opportunity
-- Business relevance
-- Dependencies and validation needs
-
-Do not place the page into a final execution phase; return it to the director for prioritization.
 
 ## Scope notice
 
 Adapt the report scope to the evidence recorded by intake. For public-only work, include:
 
-> This SEO Growth Blueprint uses publicly accessible information, observable website data, live search research, and the business context recorded during project intake. Internal analytics, Search Console data, conversion information, historical rankings, and confirmed business priorities were unavailable unless explicitly listed in the intake. Findings are specialist assessments that `seo-director` should prioritize and sequence using first-party business and performance data where available.
+> This SEO Growth Blueprint uses publicly accessible information, observable website data, live search research, and the business context recorded during project intake. Internal analytics, Search Console data, conversion information, historical rankings, and confirmed business priorities were unavailable unless explicitly listed in the intake. Specialist findings should be prioritized and sequenced by `seo-director` using first-party business and performance data where available.
 
 ## Output
 
 Return:
 
-- Specialist findings and supporting evidence
-- Actionable recommendations
-- Confidence and validation labels
-- Unresolved evidence gaps
-- Dependencies and risks for director review
+- Integrated specialist report
+- Included and excluded workstreams
+- Evidence and confidence summary
+- Unresolved gaps or conflicting findings
+- Cross-workstream dependencies
+- QA result
+- Handoff notes for director prioritization and planning
 
-When requested, save the assembled specialist report in `reports/` using:
+When requested, save the assembled report in `reports/` using:
 
 `domain-seo-growth-blueprint-YYYY-MM-DD.md`
 
-Do not modify the live website. Return the completed specialist output to `seo-director`.
+Do not modify the live website or any external account.
 
 ## Ownership boundary
 
-This skill is the sole owner of SEO specialist execution and specialist QA for the Growth Blueprint. It is not the owner of intake, orchestration, final prioritization, or execution planning.
+This skill owns integrated blueprint assembly and cross-domain QA. Focused skills own specialist analysis. `project-intake` owns intake and evidence access. `seo-director` owns orchestration, strategic synthesis, final prioritization, sequencing, ownership, approval gates, and execution planning.

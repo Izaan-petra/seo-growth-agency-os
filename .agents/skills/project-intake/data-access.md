@@ -9,7 +9,7 @@ Use when no authenticated data is available. Continue with live-site and public 
 The user has platform access but no API. Guide them to export only the required reports and upload the files. This is the default mode for shared Ahrefs accounts.
 
 ### First-party mode
-Use supplied GSC, GA4, Bing Webmaster Tools, CRM or conversion exports. Record property, date range, filters, timezone and attribution limitations.
+Use supplied GSC, GA4, Bing Webmaster Tools, CRM or conversion exports. Record property, date range, filters, dimensions, aggregation, export method, timezone and attribution limitations.
 
 ## Opening authenticated tools safely
 
@@ -28,6 +28,7 @@ Request the last 16 months when available, plus a recent comparison period.
    - Search type: Web
    - Date: Last 16 months
    - Export: Queries, Pages, Countries, Devices, Search appearance
+   - Record whether the export came from the interface, API, or bulk export; interface tables can be representative and truncated
 2. Performance comparison
    - Last 3 months versus previous period
    - Export Queries and Pages
@@ -41,6 +42,9 @@ Request the last 16 months when available, plus a recent comparison period.
    - Export or screenshot relevant structured-data reports
 7. Links
    - Export top linked pages, top linking sites and internal links
+8. Generative-AI performance, only if the property exposes Google's limited-rollout dedicated report
+   - Record availability and date range
+   - Do not double-count it against the overall Performance totals that already include this activity
 
 Minimum acceptable GSC pack: Queries + Pages for 16 months and the Indexing summary.
 
@@ -57,8 +61,13 @@ Request the same core comparison windows used in GSC.
    - Export Country and Device category for organic traffic
 4. Key events
    - Provide the names and definitions of conversions used for SEO evaluation
+5. Data interpretation metadata
+   - Property timezone and reporting identity
+   - Session-, user-, or event-scoped traffic-source dimensions used
+   - Reporting attribution model and key-event lookback window
+   - Consent/modeling, thresholding, sampling, freshness, and known tracking changes where applicable
 
-Never combine GSC clicks and GA4 sessions as though they are the same metric.
+Never combine GSC clicks and GA4 sessions as though they are the same metric. GSC commonly assigns performance to Google's selected canonical URL, while GA4 reports the tagged URL reached by the user.
 
 # Request Pack B — Content and Keyword Planning
 
@@ -185,6 +194,7 @@ For every upload:
 - Confirm export date and report date range
 - Confirm country, search type and filters
 - Check whether rows were truncated
+- Check for privacy omissions, sampling, thresholding, modeling, delayed processing, or canonical aggregation where the platform can apply them
 - Check encoding and column names
 - Keep raw files unchanged in `research/raw/` when possible
 - Save cleaned working files in `research/processed/`

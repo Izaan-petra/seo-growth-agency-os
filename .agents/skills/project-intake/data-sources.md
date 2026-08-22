@@ -6,11 +6,11 @@ Select the safest and most useful data-collection method for each project. Do no
 
 ## Intake question
 
-Before substantial SEO work, ask one concise question:
+First inspect the connectors and tools visible in the current environment. Then, only when the relevant source availability or acquisition method remains unknown, ask one concise question such as:
 
 > Which data sources are available for this project: Google Search Console, GA4, Bing Webmaster Tools, Ahrefs, Semrush, Screaming Frog, CRM or conversion data? For each paid platform, tell me whether you can use an API, export CSV/XLSX files, or provide screenshots.
 
-Ask only for sources relevant to the current objective.
+Ask only for sources relevant to the current objective. Do not ask the user to repeat connector availability already visible in the environment.
 
 ## Access modes
 

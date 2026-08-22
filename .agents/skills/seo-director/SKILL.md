@@ -1,6 +1,6 @@
 ---
 name: seo-director
-description: Direct modular SEO engagements by reading a completed project intake, selecting the specialist skills required, sequencing dependencies, coordinating delegated work, resolving evidence gaps, and producing an actionable execution plan. Use after project-intake for SEO audits, strategies, content or keyword plans, competitor research, GEO/AEO assessments, link-building programs, recovery work, and organic performance reviews.
+description: Direct modular SEO engagements by reading a completed project intake, selecting the specialist skills required, sequencing dependencies, coordinating delegated work, classifying evidence gaps, and producing an actionable execution plan. Use after project-intake for SEO audits, strategies, content or keyword plans, competitor research, GEO/AEO assessments, link-building programs, recovery work, and organic performance reviews.
 ---
 
 # SEO Director
@@ -21,7 +21,7 @@ Read the structured output from `project-intake`. Confirm that it identifies:
 - Constraints, owners, timelines, and implementation capacity
 - Verified facts, assumptions, unknowns, and blocking dependencies
 
-If material intake fields are missing, request only the minimum clarification needed. Treat unavailable authenticated data as a limitation rather than a blocker unless the requested conclusion cannot be supported without it.
+If material intake fields are missing, return a precise gap request to `project-intake`; do not recollect business or access information directly. Treat unavailable authenticated data as a limitation rather than a blocker unless the requested conclusion cannot be supported without it.
 
 ## Routing workflow
 
@@ -38,41 +38,29 @@ Do not invoke every specialist by default. Use only those required by the intake
 
 ## Current specialist routing
 
-Use `seo-growth-blueprint` for a complete initial evidence-based SEO, technical, content, competitor, keyword, GEO/AEO, authority, CRO, measurement, and organic growth assessment.
+Select from the focused skills below:
 
-Read its entry point at:
+| Need | Skill |
+|---|---|
+| Crawlability, indexability, rendering, architecture, structured data, migrations, or performance risks | `technical-seo` |
+| Organic competitors, ranking formats, SERP intent, or competitive feasibility | `competitor-serp-analysis` |
+| Query/topic research, intent clusters, page mapping, or cannibalization | `keyword-intent-strategy` |
+| Content audit, refresh/consolidation decisions, gaps, or page briefs | `seo-content-strategy` |
+| Entity clarity, GEO, AEO, answer readiness, trust, or citation-worthiness | `geo-aeo` |
+| Backlinks, authority, digital PR, reclamation, or ethical link acquisition | `authority-link-building` |
+| Organic landing journeys, CTA/form friction, trust, or SEO-focused conversion testing | `seo-cro` |
+| KPIs, events, analytics readiness, monitoring, or reporting specifications | `seo-measurement` |
+| Integrated Growth Blueprint assembly and cross-domain QA | `seo-growth-blueprint` |
 
-`../seo-growth-blueprint/SKILL.md`
+For a complete Growth Blueprint, brief the applicable focused specialists first, then pass their completed results to `seo-growth-blueprint` for report assembly and QA. Consume the assembled blueprint to perform final strategic synthesis, scoring, sequencing, and execution planning.
 
-The blueprint skill also defines specialist workflows for:
-
-- Business and market analysis
-- Technical SEO and architecture
-- Competitor and SERP analysis
-- Keyword and search-intent strategy
-- Content strategy
-- GEO, AEO, entity, and AI-search readiness
-- Authority, digital PR, and ethical link acquisition
-- CRO and UX
-- Measurement
-- Prioritization and QA
-
-As additional specialist skills are added to `.agents/skills/`, inspect their frontmatter and use them only when their declared scope matches the intake.
+For a narrow engagement, invoke only the necessary specialists. Skip blueprint assembly unless the requested deliverable needs an integrated report.
 
 ## Delegation contract
 
-For every delegated workstream, specify:
+Read and follow `specialist-contract.md` for every specialist brief and result. Use `google-search-requirements.md` as the shared, official-source baseline for applicable Google-specific work, and require current revalidation for its change-sensitive areas.
 
-- Objective
-- Relevant intake context
-- URLs, markets, and scope
-- Permitted evidence sources
-- Required output
-- Evidence and confidence rules
-- Dependencies
-- Acceptance criteria
-
-When parallel agent execution is available and authorized, parallelize only independent workstreams. Keep dependency-sensitive work sequential; for example, business discovery should inform keyword strategy, and technical findings should inform the implementation roadmap.
+When parallel agent execution is available and authorized, parallelize independent workstreams. Keep dependency-sensitive work sequential: intake precedes every specialist; competitor/SERP evidence should inform keyword and content decisions; keyword mapping should inform content briefs; measurement requirements should be available before final planning; blueprint assembly follows the selected specialist results.
 
 If delegation is unavailable, execute the same selected specialist workflows sequentially and preserve the routing record.
 
@@ -83,6 +71,7 @@ If delegation is unavailable, execute the same selected specialist workflows seq
 - Distinguish business competitors from organic search competitors.
 - Prefer first-party evidence for performance truth and treat third-party metrics as estimates.
 - Reject manipulative SEO, paid-link schemes, PBNs, fake reviews, deceptive outreach, and ranking guarantees.
+- Distinguish Google requirements, spam policies, recommendations, eligibility conditions, reporting limitations, and hypotheses in final synthesis.
 - Avoid duplicate recommendations by assigning one canonical owner and linking dependent actions.
 - Do not modify a live website or external account without explicit authorization.
 - Request human approval before actions that publish, spend money, contact third parties, change tracking, or alter production systems.

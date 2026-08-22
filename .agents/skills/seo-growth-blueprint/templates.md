@@ -1,18 +1,21 @@
 # SEO Growth Blueprint Report Template
 
-# SEO Growth Blueprint — Initial Public-Data Assessment
+# SEO Growth Blueprint
 
 **Website:**
 **Prepared on:**
-**Assessment type:** URL-only public-data assessment
+**Requested deliverable:**
+**Evidence mode:** Public, Assisted, First-party, or Mixed
+**Included specialist workstreams:**
 
 ## 1. Executive summary
 
-- Overall SEO condition
-- Biggest growth opportunity
-- Biggest risk
-- Top three actions
-- Recommended strategic direction
+- Overall condition represented in the selected specialist results
+- Included workstreams and evidence limitations
+- Director-supplied biggest growth opportunity
+- Director-supplied biggest risk
+- Director-supplied top actions
+- Director-supplied strategic direction
 
 ## 2. Scope, methodology and limitations
 
@@ -33,22 +36,12 @@ Include the required scope notice from `SKILL.md`.
 - Differentiators
 - Highest-value page types
 
-## 5. Current-state scorecard
+## 5. Current-state specialist summary
 
-Score 0–100 with brief evidence:
+Use only statuses or estimates present in completed specialist results. Do not invent numeric domain scores. For each selected workstream, summarize the evidence-backed condition, confidence, and material limitations:
 
-- Technical SEO
-- Site architecture
-- On-page SEO
-- Content quality
-- Topical authority
-- E-E-A-T and trust
-- GEO/AEO readiness
-- Off-page authority
-- UX and conversion
-- Measurement readiness
-
-Scores are directional assessments, not precise measurements.
+| Workstream | Evidence-backed condition | Confidence | Material limitation | Specialist IDs |
+|---|---|---|---|---|
 
 ## 6. Critical findings
 
@@ -87,7 +80,7 @@ Scores are directional assessments, not precise measurements.
 | Proposed title | URL | Page type | Intent | Unique value required | CTA | Confidence |
 |---|---|---|---|---|---|---|
 
-For material page opportunities, add full briefs using the new-page standard in `SKILL.md`.
+For material page opportunities, include the full briefs returned by `seo-content-strategy`.
 
 ## 13. GEO, AEO and AI-search plan
 
@@ -117,13 +110,15 @@ For material page opportunities, add full briefs using the new-page standard in 
 
 Insert the prioritized backlog supplied by `seo-director`. The blueprint specialist must not independently score or finalize priorities.
 
-Then identify:
+Then reproduce these labels only when supplied by `seo-director`:
 
 - Highest-priority action
 - Strongest quick win
 - Most important strategic project
 - Highest-risk unresolved issue
 - Most important validation-required item
+
+Leave this subsection pending director review when those labels were not supplied.
 
 ## 17. Director-owned first 30 days
 
@@ -152,4 +147,4 @@ List the first-party data and business inputs required to refine prioritization 
 
 ## 23. Final QA statement
 
-Confirm that the senior QA review was completed and summarize major limitations.
+Confirm that integrated QA was completed, list included/excluded specialist workstreams, and summarize major limitations or conflicts returned to `seo-director`.

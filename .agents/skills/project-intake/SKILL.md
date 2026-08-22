@@ -19,7 +19,7 @@ Own business discovery, evidence collection, connector detection, and data-acces
 6. Record gaps, access limitations, date ranges, filters, and assumptions.
 7. Produce the intake record and route it to `seo-director`.
 
-Ask only for information that materially affects routing or prioritization. If the user supplies only a URL, collect what can be verified publicly, label inferences, and continue without blocking.
+Ask only for information that materially affects intake completeness or the downstream director decision. If the user supplies only a URL, collect what can be verified publicly, label inferences, and continue without blocking.
 
 ## Evidence and access
 
@@ -39,7 +39,7 @@ Classify evidence separately from acquisition method:
 - **Evidence tier:** First-party, Third-party, or Public
 - **Acquisition method:** Connector/API, Export, Screenshot, or Public research
 
-Do not treat screenshots or third-party estimates as equivalent to complete first-party data. Record the property, target, country, date range, filters, export date, row limits, and known limitations where applicable.
+Do not treat screenshots or third-party estimates as equivalent to complete first-party data. Record the property, target, country, timezone, date range, filters, dimensions, aggregation, export method/date, row limits, and known limitations where applicable. For GA4, also record organic-channel definition, key-event definitions, attribution settings, consent/modeling constraints, thresholding, sampling, and freshness when relevant and observable.
 
 Read these skill-local references only when relevant:
 
@@ -113,10 +113,10 @@ Produce the following structure:
 - Inferred:
 - Requires validation:
 
-## Recommended routing
+## Handoff to SEO Director
 - Primary destination: seo-director
-- Likely specialist skills:
-- Blocking dependencies:
+- Intake completeness:
+- Blocking intake gaps:
 - Non-blocking evidence gaps:
 ```
 
@@ -124,9 +124,9 @@ Use `Not provided`, `Unavailable`, or `Requires validation` instead of leaving a
 
 ## Handoff
 
-Pass the completed intake record to `seo-director`. If direct skill-to-skill invocation is unavailable, return the intake record to the calling workflow with an explicit instruction to continue with `seo-director`.
+Pass the completed intake record to `seo-director`. Do not recommend or select specialist skills; that decision belongs to the director. If direct skill-to-skill invocation is unavailable, return the intake record to the calling workflow with an explicit instruction to continue with `seo-director`.
 
-Do not route directly to specialist execution unless `seo-director` is unavailable or the user explicitly requests a single known specialist skill.
+Do not route directly to specialist execution. If `seo-director` is unavailable, return the completed intake and identify the routing dependency without selecting a substitute workflow.
 
 ## Ownership boundary
 
