@@ -6,10 +6,14 @@
 - `.agents/skills/project-intake/data-access.md` — authenticated-data and export request packs
 - `.agents/skills/project-intake/data-sources.md` — evidence-source selection and fallback logic
 - `.agents/skills/project-intake/integrations.md` — connector, API, secret and retention rules
+- `.agents/skills/project-intake/integration-catalog.md` — Phase 3 source contracts, validation and fallback matrix
+- `.agents/skills/project-intake/authorization-manifest.md` — minimum-scope authorization control
 - `.agents/skills/seo-director/SKILL.md` — orchestration, routing, delegation and execution planning
 - `.agents/skills/seo-director/scoring.md` — director-owned prioritization framework
 - `.agents/skills/seo-director/specialist-contract.md` — shared delegation and specialist-output contract
 - `.agents/skills/seo-director/google-search-requirements.md` — official-source Google Search policy and measurement baseline
+- `.agents/skills/seo-director/routing-matrix.md` — deterministic engagement bundles and evidence gates
+- `.agents/skills/seo-director/ownership-matrix.md` — field-level primary and contributing ownership
 - `.agents/skills/technical-seo/SKILL.md` — technical SEO and architecture
 - `.agents/skills/competitor-serp-analysis/SKILL.md` — competitors and SERP patterns
 - `.agents/skills/keyword-intent-strategy/SKILL.md` — keyword, intent and page mapping
@@ -24,6 +28,13 @@
 - `.agents/skills/seo-growth-blueprint/examples.md` — quality examples
 - `docs/architecture.md` — responsibility boundaries and routing model
 - `scripts/validate-skills.ps1` — deterministic skill and reference validation
+- `scripts/check-privacy.ps1` — staged, tracked, or workspace privacy and secret validation
+- `schemas/` — versioned JSON Schema 2020-12 contracts
+- `src/seo_os/` — provider-neutral, read-only runtime foundation
+- `tests/` — schema, routing, ownership, runtime and security fixtures/tests
+- `docs/phase-3-architecture.md` — Phase 3 batching and execution-layer design
+- `docs/data-lifecycle.md` — raw, processed, snapshot, cache, report and log lifecycle
+- `docs/security-and-privacy.md` — credential, privacy, CI and logging controls
 - `reports/` — generated reports, ignored by default unless explicitly reviewed for commit
 - `research/raw/` — unchanged source exports, ignored by default
 - `research/processed/` — cleaned working artifacts, ignored by default
@@ -74,3 +85,17 @@ Project Intake supports four data-access paths:
 4. Public-data fallback when no authenticated source is available.
 
 Never paste API keys into prompts or commit them to the repository. See `.agents/skills/project-intake/data-sources.md` and `.agents/skills/project-intake/integrations.md`.
+
+## Phase 3 Batch 1 status
+
+Batch 1 establishes contracts and validation only. It does not include provider API clients, monitoring execution, deterministic specialist procedures, `ecommerce-seo`, or `seo-implementation-qa`.
+
+The connector registry is intentionally empty. A source listed in the integration catalog is not connected until a later-batch provider implementation is installed, detected, authorized, and tested.
+
+Run the stable validation entry point with Python 3.11 or newer:
+
+```powershell
+./scripts/validate-skills.ps1 -PythonPath python -RequirePython
+```
+
+If Python is not on `PATH`, pass its executable path. The command validates Phase 1/2 skills, Phase 3 control files and schemas, privacy rules, secrets, routing, ownership, fixtures, and runtime interfaces.

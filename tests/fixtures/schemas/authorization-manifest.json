@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "authorization_id": "AUTHZ-FIXTURE-001",
+  "project_id": "PROJECT-FIXTURE",
+  "status": "active",
+  "created_at": "2026-09-02T10:00:00Z",
+  "expires_at": null,
+  "authorized_by_reference": "synthetic-approval",
+  "connectors": [
+    {
+      "connector_id": "fixture-export",
+      "provider": "fixture-provider",
+      "purpose": "Contract validation",
+      "authentication_method": "user-export",
+      "credential_reference": null,
+      "acquisition_methods": ["export"],
+      "access_mode": "read-only",
+      "resource_ids": ["example.com"],
+      "allowed_fields": ["date", "url", "metric"],
+      "start_date": "2026-08-01",
+      "end_date": "2026-08-31",
+      "limitations": ["Synthetic fixture"]
+    }
+  ],
+  "data_minimization": {
+    "purpose_limited": true,
+    "pii_allowed": false,
+    "retention_policy": "fixture-only"
+  }
+}

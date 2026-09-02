@@ -2,6 +2,8 @@
 
 Use this contract for every workstream delegated by `seo-director` and every result returned by a specialist skill.
 
+Phase 3 machine-readable briefs and findings validate against `../../../schemas/specialist-brief.schema.json` and `../../../schemas/specialist-finding.schema.json`. These contracts are additive in Batch 1: preserve the existing Markdown result for human review while emitting validated JSON when machine-readable output is requested.
+
 ## Director brief
 
 Provide:

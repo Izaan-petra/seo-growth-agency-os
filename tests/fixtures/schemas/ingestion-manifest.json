@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "ingestion_id": "INGEST-FIXTURE-001",
+  "project_id": "PROJECT-FIXTURE",
+  "authorization_id": "AUTHZ-FIXTURE-001",
+  "source": "fixture-provider",
+  "record_type": "url-metric",
+  "resource_id": "example.com",
+  "acquisition_method": "export",
+  "retrieved_at": "2026-09-02T10:05:00Z",
+  "period": {"start_date": "2026-08-01", "end_date": "2026-08-31"},
+  "filters": {"market": "US"},
+  "fields": ["date", "url", "metric"],
+  "raw_artifact": {
+    "relative_path": "research/raw/fixture/export.csv",
+    "media_type": "text/csv",
+    "checksum_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "size_bytes": 128
+  },
+  "row_count": 2,
+  "status": "complete",
+  "errors": [],
+  "limitations": ["Synthetic fixture"]
+}

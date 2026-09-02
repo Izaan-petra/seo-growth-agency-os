@@ -1,0 +1,27 @@
+name: Validate SEO Agency OS
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Report runtime versions
+        run: |
+          python3 --version
+          pwsh --version
+
+      - name: Validate skills, contracts, tests, privacy, and secrets
+        shell: pwsh
+        run: ./scripts/validate-skills.ps1 -PythonPath python3 -RequirePython

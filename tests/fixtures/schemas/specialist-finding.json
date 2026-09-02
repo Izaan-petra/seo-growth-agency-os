@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "finding_id": "TECH-01",
+  "project_id": "PROJECT-FIXTURE",
+  "brief_id": "BRIEF-FIXTURE-001",
+  "workstream": "technical-seo",
+  "finding_type": "observation",
+  "statement": "The fixture homepage returns a successful response.",
+  "evidence": [
+    {
+      "reference": "INGEST-FIXTURE-001",
+      "evidence_tier": "public",
+      "observed_at": "2026-09-02T10:05:00Z",
+      "limitations": ["Synthetic fixture"]
+    }
+  ],
+  "affected_assets": ["https://example.com/"],
+  "recommended_direction": "Retain the current response behavior.",
+  "impact": "low",
+  "confidence": "high",
+  "effort": "low",
+  "dependencies": [],
+  "validation": ["Repeat the fixture check"]
+}

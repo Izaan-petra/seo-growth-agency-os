@@ -1,0 +1,16 @@
+title = "SEO Agency OS secret scanning"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Synthetic scanner unit test; contains no live provider credential"
+paths = [
+  '''^tests/security/test_security\.py$'''
+]
+
+[[allowlists]]
+description = "Legacy reviewed public-data report; new generated reports remain prohibited"
+paths = [
+  '''^reports/sharetheload\.com-seo-growth-blueprint-2026-07-29\.md$'''
+]

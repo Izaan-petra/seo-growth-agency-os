@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "intake_id": "INTAKE-FIXTURE-001",
+  "project_id": "PROJECT-FIXTURE",
+  "website": "https://example.com/",
+  "preferred_domain": "example.com",
+  "organization": "Example Fixture Company",
+  "intake_date": "2026-09-02",
+  "requested_deliverable": "Full SEO Audit",
+  "business_context": {
+    "business_model": "Synthetic ecommerce",
+    "offerings": ["Example product"],
+    "audiences": ["US buyers"],
+    "markets_languages": ["US/en"],
+    "primary_conversions": ["Purchase"],
+    "commercial_priorities": ["Qualified organic revenue"]
+  },
+  "objective_and_constraints": {
+    "primary_objective": "Validate contracts",
+    "success_criteria": ["All fixtures validate"],
+    "timeline": "Fixture",
+    "stakeholders": ["Test owner"],
+    "implementation_capacity": "Not applicable",
+    "constraints": ["Synthetic data only"]
+  },
+  "evidence_inventory": [
+    {
+      "source": "public-web",
+      "evidence_tier": "public",
+      "acquisition_method": "public-research",
+      "available": true,
+      "scope": "example.com",
+      "limitations": ["Synthetic"]
+    }
+  ],
+  "connector_availability": [
+    {
+      "connector": "public-web",
+      "available": true,
+      "authorized_scope": "example.com",
+      "intended_use": "Fixture"
+    }
+  ],
+  "fact_classification": {
+    "verified": ["Synthetic fixture"],
+    "inferred": [],
+    "requires_validation": []
+  },
+  "authorization_manifest_id": "AUTHZ-FIXTURE-001",
+  "handoff": {
+    "destination": "seo-director",
+    "completeness": "complete",
+    "blocking_gaps": [],
+    "non_blocking_gaps": []
+  }
+}

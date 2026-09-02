@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://seo-agency-os.local/schemas/keyword-cluster.schema.json",
+  "title": "SEO Keyword Cluster",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "cluster_id", "project_id", "topic", "market", "language", "intent", "queries", "target_mapping", "demand_evidence", "competition_evidence", "confidence"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "cluster_id": {"type": "string", "pattern": "^KEYWORD-[0-9]{2,}$"},
+    "project_id": {"type": "string", "minLength": 3},
+    "topic": {"type": "string", "minLength": 2},
+    "market": {"type": "string", "minLength": 2},
+    "language": {"type": "string", "minLength": 2},
+    "intent": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["transactional", "commercial", "informational", "comparison", "local", "branded", "conversational"]}},
+    "queries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["original", "normalized", "brand_classification", "evidence_references"],
+        "properties": {
+          "original": {"type": "string", "minLength": 1},
+          "normalized": {"type": "string", "minLength": 1},
+          "brand_classification": {"type": "string", "enum": ["branded", "non-branded", "mixed", "unknown"]},
+          "evidence_references": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "target_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "url", "page_type", "cannibalization"],
+      "properties": {
+        "state": {"type": "string", "enum": ["existing", "proposed", "unmapped"]},
+        "url": {"type": ["string", "null"]},
+        "page_type": {"type": "string"},
+        "cannibalization": {"type": "string", "enum": ["none", "possible", "confirmed", "not-assessed"]}
+      }
+    },
+    "demand_evidence": {"type": "array", "items": {"type": "string"}},
+    "competition_evidence": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "string", "enum": ["low", "medium", "high"]}
+  }
+}

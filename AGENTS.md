@@ -17,8 +17,16 @@ The focused specialist layer contains:
 - `seo-cro`
 - `seo-measurement`
 
+Phase 3 Batch 1 adds machine-readable contracts and a provider-neutral Python foundation. Validate data objects against `schemas/`, use `.agents/skills/seo-director/routing-matrix.md` and `.agents/skills/seo-director/ownership-matrix.md` as the director control plane, and use `.agents/skills/project-intake/integration-catalog.md` plus `.agents/skills/project-intake/authorization-manifest.md` for source and authorization intake.
+
+`ecommerce-seo` and `seo-implementation-qa` are reserved later-batch skill names. They are not executable until their skill directories and skill entrypoint files exist. Phase 3 Batch 1 contains no GSC, GA4, Ahrefs, Shopify, Merchant Center, monitoring, or other provider-specific connector.
+
 For a new or materially changed engagement, run `project-intake` first and route its structured output to `seo-director`. The director selects and briefs the focused specialist skills required. When an integrated blueprint is requested, route their results through `seo-growth-blueprint`, then return the assembled report to the director for prioritization and execution planning.
 
 `project-intake` exclusively owns business discovery, evidence collection, connector detection, data-access selection, export requests, and credential-safety intake. `seo-director` exclusively owns orchestration, routing, delegation, strategic synthesis, prioritization, sequencing, and execution planning. Focused specialist skills exclusively own their domain analysis. `seo-growth-blueprint` exclusively owns integrated report assembly and cross-domain QA.
 
 When file output is requested, save generated reports to `reports/`, unchanged source exports to `research/raw/`, and cleaned working artifacts to `research/processed/`. These locations are ignored by default for new generated files; commit a sanitized artifact only through an explicit review decision.
+
+Every future connector must implement the read-only interface under `src/seo_os/connectors/`, execute only a Project Intake-approved authorization manifest, and return an ingestion manifest. Never treat a connector contract as proof that the connector is installed, available, or authorized.
+
+Run `scripts/validate-skills.ps1` as the stable repository validation entry point. CI must require Python contract tests; local Phase 1/2 validation may still run without Python and will state when the Phase 3 tests were skipped.

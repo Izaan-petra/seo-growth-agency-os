@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "hypothesis_id": "CRO-01",
+  "project_id": "PROJECT-FIXTURE",
+  "affected_pages": ["https://example.com/product"],
+  "segment": "Organic product visitors",
+  "observation": "The synthetic CTA does not state the next step.",
+  "evidence_references": ["CRO-FIXTURE-001"],
+  "hypothesis": "A clearer CTA may improve qualified progression.",
+  "proposed_change": "Test an explicit next-step CTA.",
+  "primary_metric": "purchase_rate",
+  "guardrails": ["refund_rate"],
+  "measurement_requirements": {
+    "method": "controlled-experiment",
+    "minimum_detectable_effect": 0.1,
+    "alpha": 0.05,
+    "power": 0.8,
+    "minimum_duration_days": 14
+  },
+  "status": "draft"
+}

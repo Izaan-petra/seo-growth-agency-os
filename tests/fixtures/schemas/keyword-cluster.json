@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "cluster_id": "KEYWORD-01",
+  "project_id": "PROJECT-FIXTURE",
+  "topic": "example product",
+  "market": "US",
+  "language": "en",
+  "intent": ["commercial"],
+  "queries": [
+    {
+      "original": "example product",
+      "normalized": "example product",
+      "brand_classification": "non-branded",
+      "evidence_references": ["SERP-FIXTURE-001"]
+    }
+  ],
+  "target_mapping": {
+    "state": "existing",
+    "url": "https://example.com/product",
+    "page_type": "product",
+    "cannibalization": "none"
+  },
+  "demand_evidence": ["Synthetic directional evidence"],
+  "competition_evidence": ["Synthetic SERP"],
+  "confidence": "medium"
+}

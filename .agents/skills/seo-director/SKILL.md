@@ -25,6 +25,8 @@ If material intake fields are missing, return a precise gap request to `project-
 
 ## Routing workflow
 
+Read `routing-matrix.md` for common engagement bundles and evidence gates. Read `ownership-matrix.md` when two workstreams could own the same field. These controls preserve the smallest-sufficient-specialist rule; they do not make reserved later-batch skills executable.
+
 1. Classify the engagement and required deliverables.
 2. Map each deliverable to the smallest sufficient set of specialist skills.
 3. Separate blocking dependencies from work that can proceed in parallel.
@@ -35,6 +37,8 @@ If material intake fields are missing, return a precise gap request to `project-
 8. Produce the execution plan with owners, sequence, validation, and success measures.
 
 Do not invoke every specialist by default. Use only those required by the intake and requested outcome.
+
+Phase 3 Batch 1 reserves `ecommerce-seo` and `seo-implementation-qa` but does not implement them. Do not select or simulate either skill until its `SKILL.md` exists and repository validation activates it. Follow the fallback and dependency notes in `routing-matrix.md` meanwhile.
 
 ## Current specialist routing
 

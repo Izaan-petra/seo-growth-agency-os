@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://seo-agency-os.local/schemas/content-action.schema.json",
+  "title": "SEO Content Action",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "action_id", "project_id", "action", "url", "supporting_signals", "recommended_direction", "internal_link_changes", "qa_requirements", "confidence"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "action_id": {"type": "string", "pattern": "^CONTENT-[0-9]{2,}$"},
+    "project_id": {"type": "string", "minLength": 3},
+    "action": {"type": "string", "enum": ["retain", "refresh", "consolidate", "redirect", "remove", "create"]},
+    "url": {"type": ["string", "null"]},
+    "destination_url": {"type": ["string", "null"]},
+    "page_type": {"type": "string"},
+    "supporting_signals": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "recommended_direction": {"type": "string", "minLength": 3},
+    "brief_reference": {"type": ["string", "null"]},
+    "internal_link_changes": {"type": "array", "items": {"type": "string"}},
+    "qa_requirements": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "confidence": {"type": "string", "enum": ["low", "medium", "high"]}
+  }
+}

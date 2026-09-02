@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "brief_id": "BRIEF-FIXTURE-001",
+  "project_id": "PROJECT-FIXTURE",
+  "engagement_type": "Technical Audit",
+  "skill": "technical-seo",
+  "objective": "Validate the fixture site",
+  "scope": ["Public technical checks"],
+  "exclusions": ["Production changes"],
+  "targets": {
+    "urls": ["https://example.com/"],
+    "markets": ["US"],
+    "languages": ["en"],
+    "devices": ["mobile", "desktop"],
+    "start_date": null,
+    "end_date": null
+  },
+  "evidence_references": ["INGEST-FIXTURE-001"],
+  "dependencies": [],
+  "expected_outputs": ["Technical findings"],
+  "acceptance_criteria": ["Evidence-linked stable IDs"]
+}

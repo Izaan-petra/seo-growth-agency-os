@@ -1,0 +1,14 @@
+{
+  "scenario_id": "ecommerce-export-mode",
+  "synthetic": true,
+  "business_type": "ecommerce",
+  "available_sources": ["ahrefs-export", "ahrefs-screenshot"],
+  "acquisition_modes": ["export", "screenshot"],
+  "expected_route": ["competitor-serp-analysis", "keyword-intent-strategy", "authority-link-building"],
+  "reserved_dependencies": ["ecommerce-seo"],
+  "expected_assertions": [
+    "No API key is requested",
+    "Screenshot evidence remains partial",
+    "Export metadata is required"
+  ]
+}

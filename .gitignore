@@ -10,8 +10,9 @@ credentials/
 *.p12
 service-account*.json
 
-# Client-private files
-clients/**/private/**
+# Client-private files. Client manifests and artifacts are local by default.
+clients/*
+!clients/.gitkeep
 
 # Generated reports and client research artifacts
 # Existing tracked files remain tracked. Review and force-add only sanitized artifacts intentionally.
@@ -21,6 +22,14 @@ research/raw/*
 !research/raw/.gitkeep
 research/processed/*
 !research/processed/.gitkeep
+research/snapshots/*
+!research/snapshots/.gitkeep
+research/cache/*
+!research/cache/.gitkeep
+
+# Sanitized runtime logs only; do not retain secrets or client payloads.
+logs/*
+!logs/.gitkeep
 
 # Operating-system files
 .DS_Store
@@ -29,6 +38,17 @@ Thumbs.db
 # Temporary files and logs
 *.log
 *.tmp
+
+# Python runtime artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+build/
+dist/
+*.egg-info/
 
 # Local VS Code settings
 .vscode/settings.json

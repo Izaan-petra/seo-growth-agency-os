@@ -1,5 +1,8 @@
 [CmdletBinding()]
-param()
+param(
+    [string]$PythonPath,
+    [switch]$RequirePython
+)
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
@@ -20,11 +23,79 @@ $specialistSkills = @(
     'seo-measurement'
     'technical-seo'
 )
+$requiredControlFiles = @(
+    '.agents\skills\project-intake\integration-catalog.md'
+    '.agents\skills\project-intake\authorization-manifest.md'
+    '.agents\skills\seo-director\routing-matrix.md'
+    '.agents\skills\seo-director\ownership-matrix.md'
+    'docs\phase-3-architecture.md'
+    'docs\data-lifecycle.md'
+    'docs\security-and-privacy.md'
+    'pyproject.toml'
+)
+$requiredSchemas = @(
+    'authorization-manifest'
+    'ingestion-manifest'
+    'project-intake'
+    'specialist-brief'
+    'specialist-finding'
+    'keyword-cluster'
+    'technical-issue'
+    'content-action'
+    'backlink-prospect'
+    'cro-hypothesis'
+    'measurement-kpi'
+    'implementation-qa-result'
+    'monitoring-event'
+)
 
 foreach ($requiredSkill in @($requiredCoreSkills + $specialistSkills)) {
     $requiredSkillFile = Join-Path $skillsRoot "$requiredSkill\SKILL.md"
     if (-not (Test-Path -LiteralPath $requiredSkillFile -PathType Leaf)) {
         $errors.Add("Missing required skill: $requiredSkillFile")
+    }
+}
+
+foreach ($relativePath in $requiredControlFiles) {
+    $requiredPath = Join-Path $repositoryRoot $relativePath
+    if (-not (Test-Path -LiteralPath $requiredPath -PathType Leaf)) {
+        $errors.Add("Missing Phase 3 control file: $requiredPath")
+    }
+}
+
+foreach ($schemaName in $requiredSchemas) {
+    $schemaFile = Join-Path $repositoryRoot "schemas\$schemaName.schema.json"
+    if (-not (Test-Path -LiteralPath $schemaFile -PathType Leaf)) {
+        $errors.Add("Missing machine-readable schema: $schemaFile")
+        continue
+    }
+    try {
+        $schema = Get-Content -LiteralPath $schemaFile -Raw -Encoding UTF8 | ConvertFrom-Json
+        if ($schema.'$schema' -ne 'https://json-schema.org/draft/2020-12/schema') {
+            $errors.Add("Schema does not declare JSON Schema 2020-12: $schemaFile")
+        }
+        if ($schema.type -ne 'object') {
+            $errors.Add("Schema root must be an object: $schemaFile")
+        }
+    } catch {
+        $errors.Add("Invalid JSON schema: $schemaFile ($($_.Exception.Message))")
+    }
+}
+
+$forbiddenBatch1Paths = @(
+    '.agents\skills\ecommerce-seo\SKILL.md'
+    '.agents\skills\seo-implementation-qa\SKILL.md'
+    'src\seo_os\monitoring'
+    'src\seo_os\connectors\gsc.py'
+    'src\seo_os\connectors\ga4.py'
+    'src\seo_os\connectors\ahrefs.py'
+    'src\seo_os\connectors\shopify.py'
+    'src\seo_os\connectors\merchant_center.py'
+)
+foreach ($relativePath in $forbiddenBatch1Paths) {
+    $forbiddenPath = Join-Path $repositoryRoot $relativePath
+    if (Test-Path -LiteralPath $forbiddenPath) {
+        $errors.Add("Later-batch implementation is present in Batch 1: $forbiddenPath")
     }
 }
 
@@ -172,4 +243,59 @@ if ($errors.Count -gt 0) {
     exit 1
 }
 
-Write-Output "Validated $($skillFiles.Count) skills and $($markdownFiles.Count) agent Markdown files."
+$privacyScript = Join-Path $repositoryRoot 'scripts\check-privacy.ps1'
+if (-not (Test-Path -LiteralPath $privacyScript -PathType Leaf)) {
+    Write-Error "Missing privacy validation script: $privacyScript"
+    exit 1
+}
+& $privacyScript -Mode Workspace
+if ($LASTEXITCODE -ne 0) {
+    exit $LASTEXITCODE
+}
+
+function Resolve-PythonInterpreter {
+    param([string]$RequestedPath)
+
+    foreach ($candidate in @($RequestedPath, $env:SEO_OS_PYTHON, 'python', 'python3')) {
+        if ([string]::IsNullOrWhiteSpace($candidate)) {
+            continue
+        }
+        if (Test-Path -LiteralPath $candidate -PathType Leaf) {
+            return (Resolve-Path -LiteralPath $candidate).Path
+        }
+        $command = Get-Command $candidate -ErrorAction SilentlyContinue
+        if ($command) {
+            return $command.Source
+        }
+    }
+    return $null
+}
+
+$python = Resolve-PythonInterpreter -RequestedPath $PythonPath
+if ($python) {
+    $previousPythonPath = $env:PYTHONPATH
+    $previousDontWriteBytecode = $env:PYTHONDONTWRITEBYTECODE
+    try {
+        $sourceRoot = Join-Path $repositoryRoot 'src'
+        $env:PYTHONDONTWRITEBYTECODE = '1'
+        $env:PYTHONPATH = if ($previousPythonPath) {
+            "$sourceRoot$([System.IO.Path]::PathSeparator)$previousPythonPath"
+        } else {
+            $sourceRoot
+        }
+        & $python -m unittest discover -s (Join-Path $repositoryRoot 'tests') -v
+        if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+        }
+    } finally {
+        $env:PYTHONPATH = $previousPythonPath
+        $env:PYTHONDONTWRITEBYTECODE = $previousDontWriteBytecode
+    }
+} elseif ($RequirePython) {
+    Write-Error 'Python 3.11 or newer is required for Phase 3 contract validation.'
+    exit 1
+} else {
+    Write-Warning 'Python was not found; Phase 3 Python tests were skipped. Use -RequirePython in CI.'
+}
+
+Write-Output "Validated $($skillFiles.Count) skills, $($markdownFiles.Count) agent Markdown files, and $($requiredSchemas.Count) Phase 3 schemas."

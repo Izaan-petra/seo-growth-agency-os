@@ -1,0 +1,14 @@
+{
+  "scenario_id": "service-public-only",
+  "synthetic": true,
+  "business_type": "service",
+  "available_sources": ["public-web"],
+  "acquisition_modes": ["public-research"],
+  "expected_route": ["technical-seo", "competitor-serp-analysis", "keyword-intent-strategy", "seo-content-strategy", "seo-measurement"],
+  "reserved_dependencies": [],
+  "expected_assertions": [
+    "No performance metrics are invented",
+    "Unavailable authenticated data lowers confidence",
+    "Public evidence can proceed without credentials"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "scenario_id": "ecommerce-first-party",
+  "synthetic": true,
+  "business_type": "ecommerce",
+  "available_sources": ["gsc", "ga4", "ahrefs"],
+  "acquisition_modes": ["api-contract"],
+  "expected_route": ["technical-seo", "seo-content-strategy", "seo-measurement"],
+  "reserved_dependencies": ["ecommerce-seo"],
+  "expected_assertions": [
+    "No connector executes in Batch 1",
+    "Authorization contains references only",
+    "Ecommerce specialist remains reserved"
+  ]
+}

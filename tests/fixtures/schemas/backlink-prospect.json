@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "prospect_id": "AUTH-01",
+  "project_id": "PROJECT-FIXTURE",
+  "domain": "publisher.example",
+  "source_url": "https://publisher.example/resource",
+  "evidence_references": ["LINK-FIXTURE-001"],
+  "qualification": {
+    "topical_relevance": 4,
+    "audience_fit": 4,
+    "editorial_quality": 4,
+    "traffic_plausibility": 3,
+    "geographic_fit": 4,
+    "overall": "review"
+  },
+  "risk_flags": [],
+  "target_page": "https://example.com/guide",
+  "linkable_asset": "Synthetic research fixture",
+  "opportunity_type": "resource",
+  "approval_status": "not-reviewed"
+}

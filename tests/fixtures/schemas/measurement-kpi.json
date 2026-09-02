@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "kpi_id": "MEASURE-01",
+  "project_id": "PROJECT-FIXTURE",
+  "name": "Organic purchases",
+  "business_question": "Are qualified organic purchases improving?",
+  "definition": "Configured purchases attributed to the approved organic segment.",
+  "formula": "sum(purchases)",
+  "source": "fixture-analytics",
+  "grain": "day",
+  "filters": {"channel": "organic"},
+  "timezone": "UTC",
+  "currency": "USD",
+  "attribution": "fixture",
+  "baseline": {
+    "start_date": "2026-08-01",
+    "end_date": "2026-08-31",
+    "value": 100,
+    "comparison_rule": "Comparable 28-day period"
+  },
+  "thresholds": ["Minimum volume and persistence required"],
+  "cadence": "weekly",
+  "limitations": ["Synthetic fixture"]
+}

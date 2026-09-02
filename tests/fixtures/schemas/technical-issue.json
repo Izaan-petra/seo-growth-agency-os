@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "issue_id": "TECH-02",
+  "project_id": "PROJECT-FIXTURE",
+  "rule_id": "http-status",
+  "observed_at": "2026-09-02T10:05:00Z",
+  "category": "crawlability",
+  "affected_urls": ["https://example.com/missing"],
+  "template_or_pattern": null,
+  "expected_state": "Return the intended status for the URL lifecycle.",
+  "actual_state": "Synthetic mismatch.",
+  "evidence_references": ["INGEST-FIXTURE-001"],
+  "recommended_direction": "Confirm the intended lifecycle state.",
+  "impact": "medium",
+  "confidence": "high",
+  "validation": ["Repeat HTTP check"]
+}

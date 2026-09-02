@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "qa_id": "QA-01",
+  "project_id": "PROJECT-FIXTURE",
+  "recommendation_id": "TECH-02",
+  "check_type": "http-status",
+  "environment": "production",
+  "tested_at": "2026-09-02T11:00:00Z",
+  "before_state": {"status": 302},
+  "recommended_state": {"status": 301},
+  "after_state": {"status": 301},
+  "status": "pass",
+  "evidence_references": ["QA-EVIDENCE-001"],
+  "regression_risk": "none-observed",
+  "required_follow_up": []
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "event_id": "MONITOR-01",
+  "project_id": "PROJECT-FIXTURE",
+  "source": "fixture-monitor",
+  "signal": "http-status-change",
+  "entity": "https://example.com/product",
+  "observed_at": "2026-09-02T12:00:00Z",
+  "baseline_window": {"start_date": "2026-08-01", "end_date": "2026-08-28"},
+  "comparison_window": {"start_date": "2026-08-29", "end_date": "2026-09-02"},
+  "expected_value": 200,
+  "current_value": 500,
+  "delta": 300,
+  "threshold_rule": "High-value URL status changed from 200 to 5xx",
+  "confidence": "high",
+  "classification": "critical-incident",
+  "deduplication_key": "status:example-product:5xx",
+  "suppressed_until": null,
+  "state": "open",
+  "evidence_references": ["MONITOR-EVIDENCE-001"]
+}

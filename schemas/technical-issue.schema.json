@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://seo-agency-os.local/schemas/technical-issue.schema.json",
+  "title": "Technical SEO Issue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "issue_id", "project_id", "rule_id", "observed_at", "category", "affected_urls", "expected_state", "actual_state", "evidence_references", "recommended_direction", "impact", "confidence", "validation"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "issue_id": {"type": "string", "pattern": "^TECH-[0-9]{2,}$"},
+    "project_id": {"type": "string", "minLength": 3},
+    "rule_id": {"type": "string", "minLength": 2},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "category": {"type": "string", "minLength": 2},
+    "affected_urls": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "template_or_pattern": {"type": ["string", "null"]},
+    "expected_state": {"type": "string", "minLength": 1},
+    "actual_state": {"type": "string", "minLength": 1},
+    "evidence_references": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "recommended_direction": {"type": "string", "minLength": 3},
+    "impact": {"type": "string", "enum": ["low", "medium", "high", "critical"]},
+    "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+    "validation": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  }
+}

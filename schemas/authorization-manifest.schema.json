@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://seo-agency-os.local/schemas/authorization-manifest.schema.json",
+  "title": "SEO OS Authorization Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "authorization_id", "project_id", "status", "created_at", "connectors", "data_minimization"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "authorization_id": {"type": "string", "minLength": 3},
+    "project_id": {"type": "string", "minLength": 3},
+    "status": {"type": "string", "enum": ["pending", "active", "expired", "revoked"]},
+    "created_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": ["string", "null"], "format": "date-time"},
+    "authorized_by_reference": {"type": "string", "minLength": 3},
+    "connectors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["connector_id", "provider", "purpose", "authentication_method", "acquisition_methods", "access_mode", "resource_ids", "allowed_fields"],
+        "properties": {
+          "connector_id": {"type": "string", "minLength": 2},
+          "provider": {"type": "string", "minLength": 2},
+          "purpose": {"type": "string", "minLength": 3},
+          "authentication_method": {"type": "string", "enum": ["none", "oauth2", "service-account", "api-key", "environment-secret", "user-export", "user-screenshot"]},
+          "credential_reference": {"type": ["string", "null"], "pattern": "^(?:[A-Z][A-Z0-9_]{2,127}|secret://[A-Za-z0-9._/-]+)$"},
+          "acquisition_methods": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["api", "connector", "export", "screenshot", "public-research"]}},
+          "access_mode": {"type": "string", "const": "read-only"},
+          "resource_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "allowed_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "start_date": {"type": ["string", "null"], "format": "date"},
+          "end_date": {"type": ["string", "null"], "format": "date"},
+          "limitations": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "data_minimization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["purpose_limited", "pii_allowed", "retention_policy"],
+      "properties": {
+        "purpose_limited": {"type": "boolean", "const": true},
+        "pii_allowed": {"type": "boolean"},
+        "retention_policy": {"type": "string", "minLength": 3}
+      }
+    }
+  }
+}

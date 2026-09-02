@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://seo-agency-os.local/schemas/implementation-qa-result.schema.json",
+  "title": "SEO Implementation QA Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "qa_id", "project_id", "recommendation_id", "check_type", "environment", "tested_at", "before_state", "recommended_state", "after_state", "status", "evidence_references", "regression_risk", "required_follow_up"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "qa_id": {"type": "string", "pattern": "^QA-[0-9]{2,}$"},
+    "project_id": {"type": "string", "minLength": 3},
+    "recommendation_id": {"type": "string", "minLength": 3},
+    "check_type": {"type": "string", "minLength": 2},
+    "environment": {"type": "string", "enum": ["staging", "production", "other"]},
+    "tested_at": {"type": "string", "format": "date-time"},
+    "before_state": {"type": "object"},
+    "recommended_state": {"type": "object"},
+    "after_state": {"type": "object"},
+    "status": {"type": "string", "enum": ["pass", "fail", "partial", "not-testable"]},
+    "evidence_references": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "regression_risk": {"type": "string", "enum": ["none-observed", "low", "medium", "high", "unknown"]},
+    "required_follow_up": {"type": "array", "items": {"type": "string"}}
+  }
+}

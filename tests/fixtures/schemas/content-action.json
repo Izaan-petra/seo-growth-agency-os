@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "action_id": "CONTENT-01",
+  "project_id": "PROJECT-FIXTURE",
+  "action": "refresh",
+  "url": "https://example.com/guide",
+  "destination_url": null,
+  "page_type": "guide",
+  "supporting_signals": ["Synthetic outdated claim"],
+  "recommended_direction": "Refresh the claim with current verified evidence.",
+  "brief_reference": null,
+  "internal_link_changes": ["Link to the example product"],
+  "qa_requirements": ["Verify factual support"],
+  "confidence": "medium"
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://seo-agency-os.local/schemas/project-intake.schema.json",
+  "title": "SEO Project Intake",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "intake_id", "project_id", "website", "preferred_domain", "intake_date", "requested_deliverable", "business_context", "objective_and_constraints", "evidence_inventory", "connector_availability", "fact_classification", "handoff"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "intake_id": {"type": "string", "minLength": 3},
+    "project_id": {"type": "string", "minLength": 3},
+    "website": {"type": "string", "format": "uri"},
+    "preferred_domain": {"type": "string", "minLength": 3},
+    "organization": {"type": "string"},
+    "intake_date": {"type": "string", "format": "date"},
+    "requested_deliverable": {"type": "string", "minLength": 3},
+    "business_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["business_model", "offerings", "audiences", "markets_languages", "primary_conversions", "commercial_priorities"],
+      "properties": {
+        "business_model": {"type": "string"},
+        "offerings": {"type": "array", "items": {"type": "string"}},
+        "audiences": {"type": "array", "items": {"type": "string"}},
+        "markets_languages": {"type": "array", "items": {"type": "string"}},
+        "primary_conversions": {"type": "array", "items": {"type": "string"}},
+        "commercial_priorities": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "objective_and_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary_objective", "success_criteria", "timeline", "stakeholders", "implementation_capacity", "constraints"],
+      "properties": {
+        "primary_objective": {"type": "string"},
+        "success_criteria": {"type": "array", "items": {"type": "string"}},
+        "timeline": {"type": "string"},
+        "stakeholders": {"type": "array", "items": {"type": "string"}},
+        "implementation_capacity": {"type": "string"},
+        "constraints": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "evidence_inventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "evidence_tier", "acquisition_method", "available", "scope", "limitations"],
+        "properties": {
+          "source": {"type": "string"},
+          "evidence_tier": {"type": "string", "enum": ["first-party", "third-party", "public"]},
+          "acquisition_method": {"type": "string", "enum": ["api", "connector", "export", "screenshot", "public-research"]},
+          "available": {"type": "boolean"},
+          "scope": {"type": "string"},
+          "limitations": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "connector_availability": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["connector", "available", "authorized_scope", "intended_use"],
+        "properties": {
+          "connector": {"type": "string"},
+          "available": {"type": "boolean"},
+          "authorized_scope": {"type": "string"},
+          "intended_use": {"type": "string"}
+        }
+      }
+    },
+    "fact_classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verified", "inferred", "requires_validation"],
+      "properties": {
+        "verified": {"type": "array", "items": {"type": "string"}},
+        "inferred": {"type": "array", "items": {"type": "string"}},
+        "requires_validation": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "authorization_manifest_id": {"type": ["string", "null"]},
+    "handoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["destination", "completeness", "blocking_gaps", "non_blocking_gaps"],
+      "properties": {
+        "destination": {"type": "string", "const": "seo-director"},
+        "completeness": {"type": "string", "enum": ["complete", "partial", "blocked"]},
+        "blocking_gaps": {"type": "array", "items": {"type": "string"}},
+        "non_blocking_gaps": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

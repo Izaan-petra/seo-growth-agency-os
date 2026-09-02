@@ -1,0 +1,14 @@
+minimum_pre_commit_version: "3.7.0"
+repos:
+  - repo: local
+    hooks:
+      - id: seo-os-privacy-check
+        name: SEO OS staged privacy and secret check
+        entry: pwsh -NoLogo -NoProfile -File scripts/check-privacy.ps1 -Mode Staged
+        language: system
+        pass_filenames: false
+      - id: seo-os-validation
+        name: SEO OS contracts and tests
+        entry: pwsh -NoLogo -NoProfile -File scripts/validate-skills.ps1 -RequirePython
+        language: system
+        pass_filenames: false

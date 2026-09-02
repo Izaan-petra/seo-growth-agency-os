@@ -46,6 +46,10 @@ Read these skill-local references only when relevant:
 - `data-sources.md` for source selection and fallback logic
 - `integrations.md` for API, connector, secret-handling, and retention rules
 - `data-access.md` for GSC, GA4, Ahrefs, and manual-export request packs
+- `integration-catalog.md` for Phase 3 source contracts, required metadata, validation, cadence, storage, fallback, and consumer rules
+- `authorization-manifest.md` when recording machine-readable, minimum-scope data authorization
+
+Phase 3 Batch 1 defines provider-neutral contracts only. Do not claim that a listed API connector is implemented, connected, or authorized. Continue to use available browser, export, screenshot, and public-research paths under the existing evidence rules.
 
 ## Connector detection
 

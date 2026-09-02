@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://seo-agency-os.local/schemas/cro-hypothesis.schema.json",
+  "title": "SEO CRO Hypothesis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "hypothesis_id", "project_id", "affected_pages", "segment", "observation", "evidence_references", "hypothesis", "proposed_change", "primary_metric", "guardrails", "measurement_requirements", "status"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "hypothesis_id": {"type": "string", "pattern": "^CRO-[0-9]{2,}$"},
+    "project_id": {"type": "string", "minLength": 3},
+    "affected_pages": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "segment": {"type": "string", "minLength": 2},
+    "observation": {"type": "string", "minLength": 3},
+    "evidence_references": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "hypothesis": {"type": "string", "minLength": 3},
+    "proposed_change": {"type": "string", "minLength": 3},
+    "primary_metric": {"type": "string", "minLength": 2},
+    "guardrails": {"type": "array", "items": {"type": "string"}},
+    "measurement_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "minimum_detectable_effect", "alpha", "power", "minimum_duration_days"],
+      "properties": {
+        "method": {"type": "string", "enum": ["controlled-experiment", "observational", "instrumentation-validation"]},
+        "minimum_detectable_effect": {"type": ["number", "null"], "minimum": 0},
+        "alpha": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "power": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "minimum_duration_days": {"type": ["integer", "null"], "minimum": 1}
+      }
+    },
+    "status": {"type": "string", "enum": ["draft", "ready-for-review", "approved", "running", "completed", "rejected"]}
+  }
+}
