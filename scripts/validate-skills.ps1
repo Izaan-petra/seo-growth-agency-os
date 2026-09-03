@@ -82,20 +82,45 @@ foreach ($schemaName in $requiredSchemas) {
     }
 }
 
-$forbiddenBatch1Paths = @(
-    '.agents\skills\ecommerce-seo\SKILL.md'
-    '.agents\skills\seo-implementation-qa\SKILL.md'
-    'src\seo_os\monitoring'
+$requiredBatch2Paths = @(
+    'src\seo_os\authorization.py'
+    'src\seo_os\datasets.py'
+    'src\seo_os\secrets.py'
+    'src\seo_os\cli.py'
+    'src\seo_os\connectors\managed.py'
+    'src\seo_os\connectors\transport.py'
     'src\seo_os\connectors\gsc.py'
     'src\seo_os\connectors\ga4.py'
     'src\seo_os\connectors\ahrefs.py'
+    'src\seo_os\connectors\pagespeed.py'
+    'src\seo_os\connectors\crux.py'
+    'src\seo_os\connectors\tabular.py'
+    'src\seo_os\ingestion\pipeline.py'
+)
+foreach ($relativePath in $requiredBatch2Paths) {
+    $requiredPath = Join-Path $repositoryRoot $relativePath
+    if (-not (Test-Path -LiteralPath $requiredPath -PathType Leaf)) {
+        $errors.Add("Missing Phase 3 Batch 2 implementation: $requiredPath")
+    }
+}
+
+$forbiddenLaterBatchPaths = @(
+    '.agents\skills\ecommerce-seo\SKILL.md'
+    '.agents\skills\seo-implementation-qa\SKILL.md'
+    'src\seo_os\monitoring'
     'src\seo_os\connectors\shopify.py'
     'src\seo_os\connectors\merchant_center.py'
+    'src\seo_os\connectors\bing.py'
+    'src\seo_os\connectors\google_business_profile.py'
+    'src\seo_os\connectors\screaming_frog.py'
+    'src\seo_os\connectors\crm.py'
+    'src\seo_os\connectors\rank_tracker.py'
+    'src\seo_os\scheduling'
 )
-foreach ($relativePath in $forbiddenBatch1Paths) {
+foreach ($relativePath in $forbiddenLaterBatchPaths) {
     $forbiddenPath = Join-Path $repositoryRoot $relativePath
     if (Test-Path -LiteralPath $forbiddenPath) {
-        $errors.Add("Later-batch implementation is present in Batch 1: $forbiddenPath")
+        $errors.Add("Later-batch implementation is present in Batch 2: $forbiddenPath")
     }
 }
 

@@ -8,7 +8,7 @@ from seo_os.security import REDACTED, SafeFormatter, SafeLogFilter, redact_mappi
 
 class SecurityTests(unittest.TestCase):
     def test_mapping_redacts_secret_values(self) -> None:
-        result = redact_mapping({"api_key": "sensitive-value", "property_id": "123"})
+        result = redact_mapping({"api_key": "sensitive-value", "property_id": "123"})  # synthetic-secret-fixture
         self.assertEqual(REDACTED, result["api_key"])
         self.assertEqual("123", result["property_id"])
 

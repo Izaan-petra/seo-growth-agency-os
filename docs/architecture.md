@@ -9,7 +9,7 @@
 | Specialist execution | Focused specialist skills | Domain analysis and evidence-backed recommendations within a director brief |
 | Blueprint synthesis | `seo-growth-blueprint` | Combine selected specialist results into a coherent Growth Blueprint and run cross-domain QA |
 | Final planning | `seo-director` | Score, deduplicate, assign owners, phase work, and issue the execution plan |
-| Execution contracts | `schemas/` and `src/seo_os/` | Validate authorization, ingestion, briefs, findings and provider-neutral read-only runtime behavior |
+| Execution contracts | `schemas/` and `src/seo_os/` | Validate authorization and ingestion, run approved read-only acquisition, normalize evidence, apply quality gates, and write immutable snapshots |
 
 ## End-to-end flow
 
@@ -56,20 +56,22 @@ All specialists follow `.agents/skills/seo-director/specialist-contract.md`. App
 
 New files in these directories are ignored by Git by default. Commit only sanitized artifacts after explicit review.
 
-## Phase 3 execution foundation
+## Phase 3 execution layer
 
-Phase 3 Batch 1 adds contracts beneath the existing skill flow without changing Phase 1 or Phase 2 ownership:
+Phase 3 Batches 1 and 2 add contracts and a read-only evidence layer beneath the existing skill flow without changing Phase 1 or Phase 2 ownership:
 
 ```text
 project-intake
   -> authorization manifest and evidence plan
-  -> provider-neutral connector contract
-  -> ingestion manifest and schema validation
-  -> normalized evidence and quality interfaces
+  -> registered read-only connector selected from the approved source/mode
+  -> immutable raw artifact and ingestion manifest
+  -> canonical evidence, deterministic quality gate, and immutable snapshot
   -> seo-director routing matrix
   -> existing selected specialists
 ```
 
-No external provider connector is implemented in Batch 1. The registry remains empty until later batches add tested read-only adapters. `ecommerce-seo` and `seo-implementation-qa` are reserved names only.
+Batch 2 registers GSC, GA4, Ahrefs, PageSpeed Insights, CrUX, and generic tabular adapters. Every execution still requires an active Project Intake authorization grant for the exact provider, acquisition method, record type, resource, fields, and date range. Connector availability never grants access by itself.
+
+Provider API responses are normalized into seven canonical dataset families. Specialists consume the resulting snapshot/evidence reference; they do not receive credentials or permission to recollect or expand scope. `ecommerce-seo` and `seo-implementation-qa` remain reserved names only, and there is no monitoring or external write runtime.
 
 The stable validation entry point is `scripts/validate-skills.ps1`. It preserves the current Phase 1/2 checks, validates the new control plane and schemas, runs privacy checks, and runs Python tests when a Python interpreter is supplied or available.

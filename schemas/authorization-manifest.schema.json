@@ -29,6 +29,7 @@
           "access_mode": {"type": "string", "const": "read-only"},
           "resource_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
           "allowed_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "allowed_record_types": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9-]{2,127}$"}},
           "start_date": {"type": ["string", "null"], "format": "date"},
           "end_date": {"type": ["string", "null"], "format": "date"},
           "limitations": {"type": "array", "items": {"type": "string"}}

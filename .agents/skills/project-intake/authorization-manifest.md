@@ -8,12 +8,13 @@ Validate machine-readable manifests against `../../../schemas/authorization-mani
 
 1. Create an authorization record only after the source, purpose, resource, acquisition method, fields, date scope, and intended consumers are known.
 2. Use a separate connector entry when purpose or authorized resources differ.
-3. Set `access_mode` to `read-only`. Batch 1 has no write-capable connector contract.
+3. Set `access_mode` to `read-only`. No SEO OS connector has a write-capable contract.
 4. Store only an environment-variable name or managed-secret reference in `credential_reference`.
 5. Never store a password, token, cookie, MFA code, recovery code, private key, service-account JSON, or OAuth response in the manifest.
 6. Mark authorization `expired` or `revoked` when it can no longer be reused.
 7. Return to Project Intake when a workflow needs a new provider, property, field, purpose, scope, or materially wider date range.
 8. An available connector is not authorization. Both availability and authorized scope must be confirmed.
+9. Add `allowed_record_types` for every executable Batch 2 grant. This is the operation allowlist; connector execution fails closed when it is absent or does not contain the requested record type.
 
 ## Safe example
 
@@ -36,10 +37,11 @@ Validate machine-readable manifests against `../../../schemas/authorization-mani
       "acquisition_methods": ["api", "export"],
       "access_mode": "read-only",
       "resource_ids": ["example.com"],
-      "allowed_fields": ["referring_domain", "target_url", "first_seen"],
+      "allowed_fields": ["url_from", "url_to", "root_name_source", "first_seen"],
+      "allowed_record_types": ["ahrefs-backlinks"],
       "start_date": null,
       "end_date": null,
-      "limitations": ["API implementation is not included in Phase 3 Batch 1"]
+      "limitations": ["Ahrefs values are third-party estimates"]
     }
   ],
   "data_minimization": {
@@ -50,7 +52,7 @@ Validate machine-readable manifests against `../../../schemas/authorization-mani
 }
 ```
 
-The example shows a credential reference only. It does not indicate that an Ahrefs connector currently exists.
+The example shows a credential reference only. It does not prove that the secret is available, the account can use the endpoint, or the target is accessible.
 
 ## Handoff
 

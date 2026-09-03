@@ -10,6 +10,7 @@
   "retrieved_at": "2026-09-02T10:05:00Z",
   "period": {"start_date": "2026-08-01", "end_date": "2026-08-31"},
   "filters": {"market": "US"},
+  "metadata": {"aggregation_mode": "byPage", "returned_rows": 2},
   "fields": ["date", "url", "metric"],
   "raw_artifact": {
     "relative_path": "research/raw/fixture/export.csv",

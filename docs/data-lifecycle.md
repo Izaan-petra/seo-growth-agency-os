@@ -37,6 +37,25 @@ The durations are policy defaults, not automatic deletion authority. Apply a cli
 9. Reports cite evidence and limitations without embedding unnecessary raw data.
 10. Closeout follows the approved retention and deletion decision.
 
+## Batch 2 acquisition layout
+
+An acquisition writes only beneath the approved data root:
+
+```text
+research/
+  raw/<project>/<source>/<YYYY-MM-DD>/<ingestion-id>.<type>
+  processed/<project>/manifests/<YYYY-MM-DD>/<ingestion-id>.json
+  snapshots/<project>/<source>/<YYYY-MM-DD>/<snapshot-id>.json
+```
+
+Repository-local execution accepts `research/` as the data root; host-managed temporary or protected roots may live outside the repository. Paths inside `.git` or another repository-local directory are rejected.
+
+Raw artifacts and snapshots use create-only writes. Reusing an existing path is allowed only when its SHA-256 content is identical; different content cannot overwrite it. Snapshot IDs are deterministic hashes of the canonical dataset, ingestion reference, provenance, quality result, and records. Monitoring comparisons are deliberately absent.
+
+Every authorized provider attempt that reaches acquisition creates an ingestion manifest. A provider failure stores only a sanitized error category and message, never the provider response body. Authorization denials occur before provider access and do not create an acquisition artifact.
+
+CSV/XLSX processing preserves the original bytes, emits valid normalized rows, and reports rejected row numbers, field names, and reason codes. Rejected metadata never includes the rejected values. An all-blocking dataset is quarantined and receives no usable snapshot.
+
 ## PII controls
 
 - CRM, order and ecommerce conversion data must be aggregate by default.

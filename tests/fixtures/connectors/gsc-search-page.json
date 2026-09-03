@@ -1,0 +1,12 @@
+{
+  "rows": [
+    {
+      "keys": ["sprayer", "https://example.test/products/sprayer", "usa", "mobile"],
+      "clicks": 12,
+      "impressions": 240,
+      "ctr": 0.05,
+      "position": 4.2
+    }
+  ],
+  "responseAggregationType": "byPage"
+}

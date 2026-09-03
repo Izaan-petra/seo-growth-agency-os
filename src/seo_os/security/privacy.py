@@ -22,7 +22,7 @@ _RULES = (
     ("aws-access-key", re.compile(r"\b(?:AKIA|ASIA)[A-Z0-9]{16}\b"), "AWS access key value"),
     (
         "credential-assignment",
-        re.compile(r"(?i)(?:api[_-]?key|access[_-]?token|refresh[_-]?token|client[_-]?secret|password)\s*[:=]\s*[\"']?[A-Za-z0-9/+_.=-]{12,}"),
+        re.compile(r"(?i)(?:api[_-]?key|access[_-]?token|refresh[_-]?token|client[_-]?secret|password)[\"']?\s*[:=]\s*[\"']?[A-Za-z0-9/+_.=-]{12,}"),
         "Credential-like assignment",
     ),
 )

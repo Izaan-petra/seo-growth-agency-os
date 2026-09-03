@@ -6,7 +6,7 @@
 - Never ask a user to paste an API key or token into chat, Markdown, source code, reports or Git.
 - Store provider credentials in environment variables, OS-managed credential storage or managed cloud secrets.
 - Authorization manifests contain only variable names or managed-secret references.
-- External integrations are read-only by default and in Batch 1 by enforced interface contract.
+- External integrations are read-only by enforced interface contract. Batch 2 implements no write endpoint.
 - A provider's broad OAuth scope does not authorize the runtime to call write operations.
 
 ## Authorization
@@ -18,6 +18,10 @@ Project Intake owns authorization records. Availability, authentication and auth
 - **Authorized:** the user approved a defined purpose, resource, field set and time range.
 
 Collection requires all applicable states. A scheduled reuse is invalid after expiration, revocation, purpose change or scope expansion.
+
+Batch 2 additionally requires `allowed_record_types` in every executable authorization entry. Connector execution matches the exact provider, acquisition method, operation, resource, field set, and date scope before resolving a secret or making a provider request. Missing operation allowlists fail closed.
+
+The built-in environment resolver supports variable-name references. A host can inject a managed-secret resolver for `secret://` references. Google connectors expect a host-minted, short-lived read-only bearer access token; the runtime does not persist OAuth refresh tokens or service-account material.
 
 ## Repository controls
 
@@ -45,6 +49,8 @@ Never log:
 - unredacted CRM/order/customer records
 - uploaded client files or full provider response bodies
 
+The HTTP transport exposes only categorized errors and a narrowly allowed response-header subset. Mock transport records header and query names, not values. API keys can be sent to provider endpoints when required but are excluded from logs, manifests, snapshots, and structured errors.
+
 ## Privacy validation
 
 - Unknown fields in strict authorization and ingestion contracts fail validation.
@@ -52,6 +58,8 @@ Never log:
 - CI uses synthetic fixtures only.
 - Confidential ignored artifacts require local scanning because CI cannot see files that are never checked out.
 - Sanitized artifacts require an explicit review decision before force-adding to Git.
+- Connector fixtures are synthetic JSON only. CSV/XLSX and screenshot tests generate artifacts under temporary directories so opaque client-like files cannot enter Git.
+- Repository-local connector storage is restricted to ignored `research/`; raw responses, normalized work, manifests, and snapshots remain confidential by default.
 
 ## Incident response
 

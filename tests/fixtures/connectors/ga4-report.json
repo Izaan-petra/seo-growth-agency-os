@@ -1,0 +1,41 @@
+{
+  "dimensionHeaders": [
+    {"name": "landingPagePlusQueryString"},
+    {"name": "sessionSource"},
+    {"name": "sessionMedium"},
+    {"name": "sessionDefaultChannelGroup"},
+    {"name": "country"},
+    {"name": "deviceCategory"}
+  ],
+  "metricHeaders": [
+    {"name": "sessions", "type": "TYPE_INTEGER"},
+    {"name": "totalUsers", "type": "TYPE_INTEGER"},
+    {"name": "engagementRate", "type": "TYPE_FLOAT"},
+    {"name": "keyEvents", "type": "TYPE_FLOAT"}
+  ],
+  "rows": [
+    {
+      "dimensionValues": [
+        {"value": "/products/sprayer"},
+        {"value": "google"},
+        {"value": "organic"},
+        {"value": "Organic Search"},
+        {"value": "United States"},
+        {"value": "mobile"}
+      ],
+      "metricValues": [
+        {"value": "20"},
+        {"value": "18"},
+        {"value": "0.65"},
+        {"value": "3"}
+      ]
+    }
+  ],
+  "rowCount": 1,
+  "metadata": {
+    "currencyCode": "USD",
+    "timeZone": "America/New_York",
+    "subjectToThresholding": false,
+    "dataLossFromOtherRow": false
+  }
+}

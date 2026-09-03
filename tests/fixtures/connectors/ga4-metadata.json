@@ -1,0 +1,17 @@
+{
+  "dimensions": [
+    {"apiName": "landingPagePlusQueryString", "uiName": "Landing page + query string"},
+    {"apiName": "sessionSource", "uiName": "Session source"},
+    {"apiName": "sessionMedium", "uiName": "Session medium"},
+    {"apiName": "sessionDefaultChannelGroup", "uiName": "Session default channel group"},
+    {"apiName": "country", "uiName": "Country"},
+    {"apiName": "deviceCategory", "uiName": "Device category"}
+  ],
+  "metrics": [
+    {"apiName": "sessions", "uiName": "Sessions", "description": "Synthetic session count.", "type": "TYPE_INTEGER", "category": "Session"},
+    {"apiName": "totalUsers", "uiName": "Total users", "description": "Synthetic user count.", "type": "TYPE_INTEGER", "category": "User"},
+    {"apiName": "engagementRate", "uiName": "Engagement rate", "description": "Synthetic engaged-session rate.", "type": "TYPE_FLOAT", "category": "Session"},
+    {"apiName": "keyEvents", "uiName": "Key events", "description": "Synthetic key-event count.", "type": "TYPE_FLOAT", "category": "Event"},
+    {"apiName": "totalRevenue", "uiName": "Total revenue", "description": "Synthetic revenue.", "type": "TYPE_CURRENCY", "category": "Revenue"}
+  ]
+}

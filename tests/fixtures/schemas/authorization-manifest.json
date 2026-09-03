@@ -17,6 +17,7 @@
       "access_mode": "read-only",
       "resource_ids": ["example.com"],
       "allowed_fields": ["date", "url", "metric"],
+      "allowed_record_types": ["generic-tabular-evidence"],
       "start_date": "2026-08-01",
       "end_date": "2026-08-31",
       "limitations": ["Synthetic fixture"]

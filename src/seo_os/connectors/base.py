@@ -13,10 +13,18 @@ from typing import Any, Mapping
 class ConnectorError(RuntimeError):
     """A safe connector failure that must not contain credential values."""
 
-    def __init__(self, category: str, message: str, *, retryable: bool = False) -> None:
+    def __init__(
+        self,
+        category: str,
+        message: str,
+        *,
+        retryable: bool = False,
+        details: Mapping[str, Any] | None = None,
+    ) -> None:
         super().__init__(message)
         self.category = category
         self.retryable = retryable
+        self.details = dict(details or {})
 
 
 @dataclass(frozen=True, slots=True)
@@ -42,6 +50,7 @@ class ConnectorContext:
     data_root: Path
     requested_at: datetime
     approved_resource_ids: tuple[str, ...] = ()
+    authorization_manifest: Mapping[str, Any] | None = None
 
     def __post_init__(self) -> None:
         if self.credential_reference is not None and re.fullmatch(
@@ -86,6 +95,12 @@ class ConnectorResult:
     records: tuple[Mapping[str, Any], ...]
     limitations: tuple[str, ...] = ()
     metadata: Mapping[str, Any] = field(default_factory=dict)
+    status: str = "complete"
+    ingestion_manifest: Mapping[str, Any] | None = None
+    quality_report: Mapping[str, Any] | None = None
+    snapshot: Mapping[str, Any] | None = None
+    rejected_records: tuple[Mapping[str, Any], ...] = ()
+    errors: tuple[Mapping[str, Any], ...] = ()
 
 
 class Connector(ABC):

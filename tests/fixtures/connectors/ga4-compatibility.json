@@ -1,0 +1,16 @@
+{
+  "dimensionCompatibilities": [
+    {"dimensionMetadata": {"apiName": "landingPagePlusQueryString"}, "compatibility": "COMPATIBLE"},
+    {"dimensionMetadata": {"apiName": "sessionSource"}, "compatibility": "COMPATIBLE"},
+    {"dimensionMetadata": {"apiName": "sessionMedium"}, "compatibility": "COMPATIBLE"},
+    {"dimensionMetadata": {"apiName": "sessionDefaultChannelGroup"}, "compatibility": "COMPATIBLE"},
+    {"dimensionMetadata": {"apiName": "country"}, "compatibility": "COMPATIBLE"},
+    {"dimensionMetadata": {"apiName": "deviceCategory"}, "compatibility": "COMPATIBLE"}
+  ],
+  "metricCompatibilities": [
+    {"metricMetadata": {"apiName": "sessions"}, "compatibility": "COMPATIBLE"},
+    {"metricMetadata": {"apiName": "totalUsers"}, "compatibility": "COMPATIBLE"},
+    {"metricMetadata": {"apiName": "engagementRate"}, "compatibility": "COMPATIBLE"},
+    {"metricMetadata": {"apiName": "keyEvents"}, "compatibility": "COMPATIBLE"}
+  ]
+}

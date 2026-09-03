@@ -49,7 +49,7 @@ Read these skill-local references only when relevant:
 - `integration-catalog.md` for Phase 3 source contracts, required metadata, validation, cadence, storage, fallback, and consumer rules
 - `authorization-manifest.md` when recording machine-readable, minimum-scope data authorization
 
-Phase 3 Batch 1 defines provider-neutral contracts only. Do not claim that a listed API connector is implemented, connected, or authorized. Continue to use available browser, export, screenshot, and public-research paths under the existing evidence rules.
+Phase 3 Batch 2 implements read-only GSC, GA4, Ahrefs, PageSpeed Insights, CrUX, and generic CSV/XLSX adapters. Read `integration-catalog.md` to distinguish implemented modes from contract-only sources. An implemented adapter is not connected or authorized until its availability, secret reference when applicable, resource, record type, fields, dates, and active authorization manifest are confirmed. Continue to use export, screenshot, and public-research fallbacks under the existing evidence rules.
 
 ## Connector detection
 

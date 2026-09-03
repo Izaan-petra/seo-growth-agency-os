@@ -4,12 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seo-agency-os"
-version = "0.3.0"
-description = "Contract and validation foundation for the SEO Agency Operating System"
+version = "0.4.0"
+description = "Read-only data integration layer for the SEO Agency Operating System"
 requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
+seo-os = "seo_os.cli:main"
 seo-os-privacy-check = "seo_os.security.scan:main"
 
 [tool.setuptools]

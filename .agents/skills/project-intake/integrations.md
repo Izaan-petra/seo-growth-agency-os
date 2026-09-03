@@ -10,6 +10,18 @@ Example variable name:
 AHREFS_API_KEY
 ```
 
+Phase 3 Batch 2 recognizes these repository-safe variable names:
+
+```text
+GSC_ACCESS_TOKEN
+GA4_ACCESS_TOKEN
+AHREFS_API_KEY
+PAGESPEED_API_KEY
+CRUX_API_KEY
+```
+
+`GSC_ACCESS_TOKEN` and `GA4_ACCESS_TOKEN` must be short-lived, host-minted OAuth access-token references; OAuth refresh tokens and service-account contents must never be stored in the repository. The PageSpeed Insights and CrUX API keys are optional when the provider accepts an unauthenticated request. Their absence must be reported as an availability limitation rather than prompting for the value.
+
 Do not place the value in:
 
 - `SKILL.md`

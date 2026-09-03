@@ -30,8 +30,8 @@
 - `scripts/validate-skills.ps1` — deterministic skill and reference validation
 - `scripts/check-privacy.ps1` — staged, tracked, or workspace privacy and secret validation
 - `schemas/` — versioned JSON Schema 2020-12 contracts
-- `src/seo_os/` — provider-neutral, read-only runtime foundation
-- `tests/` — schema, routing, ownership, runtime and security fixtures/tests
+- `src/seo_os/` — authorization, read-only connectors, normalization, quality, snapshots, security, and CLI
+- `tests/` — schema, routing, ownership, mocked connector, runtime and security fixtures/tests
 - `docs/phase-3-architecture.md` — Phase 3 batching and execution-layer design
 - `docs/data-lifecycle.md` — raw, processed, snapshot, cache, report and log lifecycle
 - `docs/security-and-privacy.md` — credential, privacy, CI and logging controls
@@ -86,11 +86,48 @@ Project Intake supports four data-access paths:
 
 Never paste API keys into prompts or commit them to the repository. See `.agents/skills/project-intake/data-sources.md` and `.agents/skills/project-intake/integrations.md`.
 
-## Phase 3 Batch 1 status
+## Phase 3 Batch 2 status
 
-Batch 1 establishes contracts and validation only. It does not include provider API clients, monitoring execution, deterministic specialist procedures, `ecommerce-seo`, or `seo-implementation-qa`.
+Batch 1 established contracts and the provider-neutral runtime. Batch 2 registers six read-only adapters:
 
-The connector registry is intentionally empty. A source listed in the integration catalog is not connected until a later-batch provider implementation is installed, detected, authorized, and tested.
+- `gsc`: Search Analytics API
+- `ga4`: Data API metadata, compatibility, and `runReport`
+- `ahrefs`: selected Site Explorer API reports plus export, screenshot, and public-fallback modes
+- `pagespeed-insights`: Lighthouse lab evidence from PageSpeed Insights v5
+- `crux`: URL/origin field evidence from the CrUX current-record API
+- `tabular`: authorized CSV/XLSX exports with explicit rejected-row reporting
+
+These adapters do not run OAuth flows or store long-lived credentials. The host must supply an approved environment-variable or managed-secret reference in an active authorization manifest. For Google APIs, supply a short-lived read-only bearer access token through the configured reference. Do not store OAuth refresh tokens or service-account JSON in this repository.
+
+Shopify, Merchant Center, Bing Webmaster Tools, Google Business Profile, Screaming Frog CLI, CRM adapters, rank trackers, scheduling, monitoring, production writes, `ecommerce-seo`, and `seo-implementation-qa` remain unimplemented.
+
+### Safe local commands
+
+Install the package in editable mode in an isolated environment, or set `PYTHONPATH` to `src`, then run:
+
+```powershell
+python -m pip install -e .
+python -m seo_os connectors
+python -m seo_os validate-authorization clients/example/authorization.json
+python -m seo_os ingest-export --authorization clients/example/authorization.json --data-root research --record-type generic-tabular-evidence --resource approved-export --fields date,clicks --file uploads/search.csv
+python -m seo_os validate-snapshot research/snapshots/PROJECT/source/YYYY-MM-DD/snapshot-id.json
+python -m seo_os mock-connector --authorization tests/fixtures/connectors/authorization-gsc.json --data-root research --provider gsc --record-type gsc-search-performance --resource sc-domain:example.test --fields query,page,country,device,clicks,impressions,ctr,average_position --start-date 2026-08-01 --end-date 2026-08-31 --filters '{"aggregation_type":"byPage"}' --fixture tests/fixtures/connectors/gsc-search-page.json
+```
+
+The export path is relative to `DATA_ROOT/raw`. Real authorization manifests belong in ignored `clients/`; real exports and provider responses belong under ignored `research/`. The mock command is for synthetic fixtures only.
+
+### Environment references
+
+Recommended variable names are `GSC_ACCESS_TOKEN`, `GA4_ACCESS_TOKEN`, `AHREFS_API_KEY`, `PAGESPEED_API_KEY`, and `CRUX_API_KEY`. The manifest stores only the name, never its value. PageSpeed can run without a key for limited use when an authorization entry explicitly uses authentication method `none`.
+
+### Provider limitations
+
+- GSC Search Analytics returns top rows rather than a guaranteed complete underlying table; query privacy and Pacific Time can affect reconciliation.
+- GA4 sessions are not GSC clicks. Channel configuration, attribution, thresholding, high cardinality, sampling, modeling, consent, and freshness can affect results.
+- Ahrefs metrics are third-party estimates and API usage can consume paid units. Batch 2 limits API mode to organic keywords, top pages, backlinks, and referring domains.
+- PageSpeed values are Lighthouse lab diagnostics. CrUX values are aggregated field evidence; they remain separate datasets.
+- CrUX may have no URL/origin record for low-traffic resources.
+- CSV/XLSX invalid, duplicate, truncated, or privacy-sensitive rows are reported; they are never silently discarded.
 
 Run the stable validation entry point with Python 3.11 or newer:
 
@@ -98,4 +135,4 @@ Run the stable validation entry point with Python 3.11 or newer:
 ./scripts/validate-skills.ps1 -PythonPath python -RequirePython
 ```
 
-If Python is not on `PATH`, pass its executable path. The command validates Phase 1/2 skills, Phase 3 control files and schemas, privacy rules, secrets, routing, ownership, fixtures, and runtime interfaces.
+If Python is not on `PATH`, pass its executable path. The command validates Phase 1/2 skills, Phase 3 contracts, connector registration, mocked provider behavior, privacy rules, routing, ownership, fixtures, ingestion, quality, snapshots, CLI, and security controls. No CI test requires live credentials.
