@@ -120,18 +120,27 @@ Official behavior was verified on 2026-09-03:
 
 ## Skill availability
 
-The eight Phase 2 specialist skills remain active. `ecommerce-seo` and `seo-implementation-qa` are declared as reserved in the routing and ownership matrices so later batches can implement them without silently pretending they already execute.
+The eight Phase 2 specialist skills now have executable Batch 3 deterministic procedures. `ecommerce-seo` and `seo-implementation-qa` remain reserved in the routing and ownership matrices so later batches can implement them without silently pretending they already execute.
 
 ## Compatibility
 
 - Existing Markdown specialist outputs remain valid.
 - Machine-readable objects are an additive contract in Batch 1.
 - Batch 2 normalized snapshots are additive evidence references; Markdown specialist outputs remain valid.
+- Batch 3 deterministic procedures are additive when compatible approved snapshots exist; unsupported manual evidence remains explicitly reviewed under the Markdown contract.
 - The existing specialist delegation contract remains authoritative.
 - The blueprint remains optional assembly only.
 - The director remains the only final routing, conflict-resolution and planning owner.
 - Project Intake remains the only access-discovery and authorization owner.
 
+## Batch 3 scope
+
+Batch 3 implements deterministic analysis procedures for the eight active specialists under `src/seo_os/procedures/`. A shared framework enforces exact snapshot approval, project and dataset-type boundaries, quality gating, deterministic IDs, evidence references, degraded-mode disclosure, schema validation, and return to SEO Director.
+
+Each specialist has a detailed procedure contract under `.agents/skills/<skill>/references/procedure.md`. Technical issues, keyword clusters, content actions, backlink prospects, CRO hypotheses, and measurement KPIs validate against their domain schemas. SERP and GEO artifacts remain inside the validated specialist-result envelope and retain their input snapshot references.
+
+Batch 3 includes deterministic scenario fixtures for ecommerce first-party evidence, public-only service research, and ecommerce evidence with Ahrefs exports. Tests cover absent, malformed, blocked, incomplete, duplicate, zero-value, contradictory, and provider-boundary cases.
+
 ## Later batches
 
-Later approved batches may add the explicitly excluded providers, deterministic specialist procedures, ecommerce, implementation QA and monitoring. Each must add contract fixtures and tests before being described as executable. Batch 2 performs no comparisons or scheduling.
+Later approved batches may add the explicitly excluded providers, ecommerce, implementation QA and monitoring. Each must add contract fixtures and tests before being described as executable. Batch 3 performs no acquisition, monitoring, scheduling, alerting, outreach, publishing, or production writes.

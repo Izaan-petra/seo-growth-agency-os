@@ -11,6 +11,8 @@ Explain who competes in organic search, what result formats satisfy the target i
 
 Read `../seo-director/specialist-contract.md`. Use business competitors recorded by `project-intake`, but identify organic competitors separately. Do not redefine business strategy or assign final priorities.
 
+When executing against Phase 3 snapshots, read `references/procedure.md` and use its deterministic runtime contract. Do not substitute an ad hoc analysis when compatible approved datasets are available.
+
 ## Analyze
 
 - Business competitors versus organic search competitors

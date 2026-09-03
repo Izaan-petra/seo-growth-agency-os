@@ -31,6 +31,7 @@
 - `scripts/check-privacy.ps1` — staged, tracked, or workspace privacy and secret validation
 - `schemas/` — versioned JSON Schema 2020-12 contracts
 - `src/seo_os/` — authorization, read-only connectors, normalization, quality, snapshots, security, and CLI
+- `src/seo_os/procedures/` — versioned deterministic procedures for the eight active SEO specialists
 - `tests/` — schema, routing, ownership, mocked connector, runtime and security fixtures/tests
 - `docs/phase-3-architecture.md` — Phase 3 batching and execution-layer design
 - `docs/data-lifecycle.md` — raw, processed, snapshot, cache, report and log lifecycle
@@ -136,3 +137,11 @@ Run the stable validation entry point with Python 3.11 or newer:
 ```
 
 If Python is not on `PATH`, pass its executable path. The command validates Phase 1/2 skills, Phase 3 contracts, connector registration, mocked provider behavior, privacy rules, routing, ownership, fixtures, ingestion, quality, snapshots, CLI, and security controls. No CI test requires live credentials.
+
+## Phase 3 Batch 3 status
+
+Batch 3 adds dataset-driven procedures for all eight active specialists: technical SEO, competitor/SERP analysis, keyword and intent strategy, content strategy, GEO/AEO, authority/link building, SEO CRO, and SEO measurement. Each skill links to a detailed procedure reference; runtime code lives under `src/seo_os/procedures/`.
+
+Procedures accept only explicitly approved immutable snapshot IDs, validate scope and quality, preserve provenance, generate stable IDs, validate typed artifacts against `schemas/`, and return results to SEO Director. Blocking or insufficient evidence fails closed; missing optional evidence produces a disclosed degraded result. No procedure collects additional data or performs production changes.
+
+Batch 3 does not add connectors, ecommerce execution, implementation QA, monitoring, scheduling, alerting, outreach, publishing, or any other external write action.

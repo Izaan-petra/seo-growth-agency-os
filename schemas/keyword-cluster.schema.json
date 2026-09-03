@@ -12,7 +12,7 @@
     "topic": {"type": "string", "minLength": 2},
     "market": {"type": "string", "minLength": 2},
     "language": {"type": "string", "minLength": 2},
-    "intent": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["transactional", "commercial", "informational", "comparison", "local", "branded", "conversational"]}},
+    "intent": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["transactional", "commercial", "informational", "comparison", "local", "navigational", "branded", "conversational"]}},
     "queries": {
       "type": "array",
       "minItems": 1,
@@ -23,7 +23,10 @@
         "properties": {
           "original": {"type": "string", "minLength": 1},
           "normalized": {"type": "string", "minLength": 1},
-          "brand_classification": {"type": "string", "enum": ["branded", "non-branded", "mixed", "unknown"]},
+          "brand_classification": {"type": "string", "enum": ["branded", "non-branded", "mixed", "ambiguous", "unknown"]},
+          "brand_confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+          "intent_labels": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["transactional", "commercial", "informational", "comparison", "local", "navigational", "branded", "conversational"]}},
+          "intent_confidence": {"type": "string", "enum": ["low", "medium", "high"]},
           "evidence_references": {"type": "array", "items": {"type": "string"}}
         }
       }
@@ -36,11 +39,20 @@
         "state": {"type": "string", "enum": ["existing", "proposed", "unmapped"]},
         "url": {"type": ["string", "null"]},
         "page_type": {"type": "string"},
-        "cannibalization": {"type": "string", "enum": ["none", "possible", "confirmed", "not-assessed"]}
+        "cannibalization": {"type": "string", "enum": ["none", "possible", "confirmed", "not-assessed"]},
+        "decision": {"type": "string", "enum": ["existing-page-fit", "refresh-existing", "consolidate", "create-new", "unresolved"]}
       }
     },
     "demand_evidence": {"type": "array", "items": {"type": "string"}},
     "competition_evidence": {"type": "array", "items": {"type": "string"}},
+    "business_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "relevance_labels": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "conversion_roles": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}
+      }
+    },
     "confidence": {"type": "string", "enum": ["low", "medium", "high"]}
   }
 }

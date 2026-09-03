@@ -11,6 +11,8 @@ Connect qualified organic discovery to meaningful business actions by identifyin
 
 Read `../seo-director/specialist-contract.md`. Use conversions, audiences, offers, constraints, and approved behavioral evidence from `project-intake`. Do not redefine business goals or modify production experiences.
 
+When executing against Phase 3 snapshots, read `references/procedure.md` and use its deterministic runtime contract. Do not substitute an ad hoc analysis when compatible approved datasets are available.
+
 ## Analyze
 
 - Query/SERP-to-landing-page message match

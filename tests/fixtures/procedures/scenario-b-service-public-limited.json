@@ -1,0 +1,15 @@
+{
+  "scenario": "service-public-limited",
+  "datasets": [
+    {
+      "dataset_type": "generic-tabular-evidence", "name": "serp-sample", "limitations": ["Public sample; no first-party performance evidence"],
+      "records": [
+        {"values": {"query": "emergency plumber", "locale": "en-US", "language": "en", "device": "mobile", "location": "Austin, TX", "timestamp": "2026-09-03T00:00:00Z", "search_engine": "Google", "position": 1, "url": "https://competitor.example/emergency", "result_type": "local-service-page", "serp_features": ["local-pack"], "intent": "local"}, "source_row": 1},
+        {"values": {"query": "emergency plumber", "locale": "en-US", "language": "en", "device": "mobile", "location": "Austin, TX", "timestamp": "2026-09-03T00:00:00Z", "search_engine": "Google", "position": 2, "url": "https://other.example/plumber", "result_type": "local-service-page", "serp_features": ["local-pack"], "intent": "transactional"}, "source_row": 2},
+        {"values": {"query": "water heater repair", "locale": "en-US", "language": "en", "device": "mobile", "location": "Austin, TX", "timestamp": "2026-09-03T00:00:00Z", "search_engine": "Google", "position": 1, "url": "https://competitor.example/heater", "result_type": "service-page", "serp_features": [], "intent": "transactional"}, "source_row": 3},
+        {"values": {"query": "undersampled query", "locale": "en-US", "language": "en", "device": "mobile", "location": "Austin, TX", "timestamp": "2026-09-03T00:00:00Z", "search_engine": "Google", "position": 1, "url": "https://single.example/page", "result_type": "article", "serp_features": [], "intent": "informational"}, "source_row": 4},
+        {"values": {"query": "bad row"}, "source_row": 5}
+      ]
+    }
+  ]
+}

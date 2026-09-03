@@ -104,6 +104,26 @@ foreach ($relativePath in $requiredBatch2Paths) {
     }
 }
 
+$requiredBatch3Paths = @(
+    'src\seo_os\procedures\common.py'
+    'src\seo_os\procedures\framework.py'
+    'src\seo_os\procedures\ownership.py'
+    'src\seo_os\procedures\technical.py'
+    'src\seo_os\procedures\serp.py'
+    'src\seo_os\procedures\keyword.py'
+    'src\seo_os\procedures\content.py'
+    'src\seo_os\procedures\geo.py'
+    'src\seo_os\procedures\authority.py'
+    'src\seo_os\procedures\cro.py'
+    'src\seo_os\procedures\measurement.py'
+)
+foreach ($relativePath in $requiredBatch3Paths) {
+    $requiredPath = Join-Path $repositoryRoot $relativePath
+    if (-not (Test-Path -LiteralPath $requiredPath -PathType Leaf)) {
+        $errors.Add("Missing Phase 3 Batch 3 implementation: $requiredPath")
+    }
+}
+
 $forbiddenLaterBatchPaths = @(
     '.agents\skills\ecommerce-seo\SKILL.md'
     '.agents\skills\seo-implementation-qa\SKILL.md'
@@ -120,7 +140,7 @@ $forbiddenLaterBatchPaths = @(
 foreach ($relativePath in $forbiddenLaterBatchPaths) {
     $forbiddenPath = Join-Path $repositoryRoot $relativePath
     if (Test-Path -LiteralPath $forbiddenPath) {
-        $errors.Add("Later-batch implementation is present in Batch 2: $forbiddenPath")
+        $errors.Add("Later-batch implementation is present in Batch 3: $forbiddenPath")
     }
 }
 
@@ -164,6 +184,13 @@ foreach ($specialistSkill in $specialistSkills) {
         }
         if ($content -notmatch 'Use\s+`[A-Z]+-##`\s+IDs') {
             $errors.Add("Specialist has no stable workstream ID rule: $specialistSkillFile")
+        }
+        if ($content -notmatch [regex]::Escape('references/procedure.md')) {
+            $errors.Add("Specialist does not reference its deterministic procedure: $specialistSkillFile")
+        }
+        $procedureFile = Join-Path $skillsRoot "$specialistSkill\references\procedure.md"
+        if (-not (Test-Path -LiteralPath $procedureFile -PathType Leaf)) {
+            $errors.Add("Specialist deterministic procedure is missing: $procedureFile")
         }
     }
 }

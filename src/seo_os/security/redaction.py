@@ -10,7 +10,7 @@ from typing import Any
 REDACTED = "[REDACTED]"
 
 _SENSITIVE_KEY = re.compile(
-    r"(?i)(?:api[_-]?key|access[_-]?token|refresh[_-]?token|client[_-]?secret|password|passwd|authorization|cookie|session|mfa|recovery[_-]?code)"
+    r"(?i)^(?:api[_-]?key|access[_-]?token|refresh[_-]?token|client[_-]?secret|password|passwd|authorization(?:[_-]?header)?|cookie(?:[_-]?header)?|session(?:[_-]?(?:id|token|cookie))?|mfa|recovery[_-]?code)$"
 )
 _TEXT_PATTERNS = (
     re.compile(r"(?i)\bBearer\s+[A-Za-z0-9._~+/=-]{8,}"),

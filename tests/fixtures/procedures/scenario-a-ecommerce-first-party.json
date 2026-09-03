@@ -1,0 +1,49 @@
+{
+  "scenario": "ecommerce-first-party",
+  "datasets": [
+    {
+      "dataset_type": "generic-tabular-evidence",
+      "name": "site-observations",
+      "records": [
+        {"values": {"url": "https://shop.example/products/sprayer?utm_source=test", "status_code": 200, "indexable": true, "in_sitemap": true, "canonical": "https://shop.example/products/sprayer", "inlinks": 0, "crawl_depth": 5, "page_type": "product", "last_updated": "2023-01-01", "business_role": "high", "cta_visible": false, "message_match": true, "form_error": false, "trust_signals_present": false, "mobile_obstruction": true, "entity_clarity": true, "organization_consistency": true, "author_present": false, "reviewer_present": false, "sources_present": false, "original_evidence": true, "direct_answer": true, "question_coverage": false, "structured_data_aligned": true, "external_corroboration": false, "snippet_eligible": true}, "source_row": 1},
+        {"values": {"url": "https://shop.example/old", "status_code": 301, "redirect_to": "https://shop.example/mid", "indexable": false, "in_sitemap": true, "page_type": "legacy", "business_role": "none", "conversions": 0}, "source_row": 2},
+        {"values": {"url": "https://shop.example/mid", "status_code": 302, "redirect_to": "https://shop.example/products/sprayer", "indexable": false, "in_sitemap": false, "page_type": "legacy", "business_role": "none", "conversions": 0}, "source_row": 3},
+        {"values": {"url": "https://shop.example/orphan", "status_code": 200, "indexable": true, "in_sitemap": false, "inlinks": 0, "crawl_depth": 7, "page_type": "article", "business_role": "low", "last_updated": "invalid-date"}, "source_row": 4},
+        {"values": {"url": "https://shop.example/seasonal", "status_code": 200, "indexable": true, "in_sitemap": true, "page_type": "guide", "business_role": "medium", "current_clicks": 20, "comparable_clicks": 100, "seasonal": true, "last_updated": "2026-01-01"}, "source_row": 5},
+        {"values": {"url": "https://shop.example/noindex-in-sitemap", "status_code": 200, "meta_robots": "noindex", "in_sitemap": true, "page_type": "filter", "business_role": "none", "conversions": 0}, "source_row": 6}
+      ]
+    },
+    {
+      "dataset_type": "gsc-search-performance", "name": "gsc-current", "period": {"start_date": "2026-08-01", "end_date": "2026-08-31"},
+      "records": [
+        {"date": "2026-08-10", "query": "best sprayer", "page": "https://shop.example/products/sprayer", "clicks": 0, "impressions": 100, "ctr": 0, "average_position": 8},
+        {"date": "2026-08-11", "query": "shop brand sprayer", "page": "https://shop.example/products/sprayer", "clicks": 10, "impressions": 200, "ctr": 0.05, "average_position": 4},
+        {"date": "2026-08-12", "query": "zero demand example", "page": "https://shop.example/products/sprayer", "clicks": 0, "impressions": 0, "ctr": 0, "average_position": 0}
+      ]
+    },
+    {
+      "dataset_type": "gsc-search-performance", "name": "gsc-previous", "period": {"start_date": "2026-07-01", "end_date": "2026-07-31"},
+      "records": [{"date": "2026-07-10", "query": "best sprayer", "page": "https://shop.example/category/sprayers", "clicks": 20, "impressions": 100, "ctr": 0.2, "average_position": 5}]
+    },
+    {
+      "dataset_type": "ga4-organic-landing-performance", "name": "ga4-current", "period": {"start_date": "2026-08-01", "end_date": "2026-08-31"},
+      "records": [{"date": "2026-08-10", "landingPage": "https://shop.example/products/sprayer", "sessions": 150, "totalUsers": 130, "keyEvents": 3, "totalRevenue": 300}]
+    },
+    {
+      "dataset_type": "ahrefs-keyword-ranking", "name": "ahrefs-keywords", "period": {"start_date": "2026-08-01", "end_date": "2026-08-31"},
+      "records": [{"keyword": "battery sprayer", "url": "https://shop.example/products/sprayer", "keyword_country": "US", "date": "2026-08-15", "position": 8, "volume": 1000, "traffic": 120}]
+    },
+    {
+      "dataset_type": "ahrefs-backlink-refdomain", "name": "ahrefs-backlinks", "period": {"start_date": "2026-08-01", "end_date": "2026-08-31"},
+      "records": [{"url_from": "https://publisher.example/review", "url_to": "https://shop.example/products/sprayer", "domain": "publisher.example", "links_to_target": 1, "domain_rating": 50}]
+    },
+    {
+      "dataset_type": "crux-field-performance", "name": "crux-poor",
+      "records": [{"scope": "url", "resource": "https://shop.example/products/sprayer", "collection_period": {"first_date": "2026-08-01", "last_date": "2026-08-28"}, "metrics": {"largest_contentful_paint": {"percentiles": {"p75": 4300}}, "interaction_to_next_paint": {"percentiles": {"p75": 180}}, "cumulative_layout_shift": {"percentiles": {"p75": 0.08}}}}]
+    },
+    {
+      "dataset_type": "psi-lab-performance", "name": "psi-good",
+      "records": [{"requested_url": "https://shop.example/products/sprayer", "final_url": "https://shop.example/products/sprayer", "strategy": "mobile", "fetch_time": "2026-09-03T00:00:00Z", "lighthouse_version": "13", "performance_score": 0.95}]
+    }
+  ]
+}

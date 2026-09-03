@@ -17,7 +17,7 @@ The focused specialist layer contains:
 - `seo-cro`
 - `seo-measurement`
 
-Phase 3 Batch 1 adds machine-readable contracts and the provider-neutral Python foundation. Batch 2 registers read-only GSC, GA4, Ahrefs, PageSpeed Insights, CrUX, and generic CSV/XLSX adapters. Validate data objects against `schemas/`, use `.agents/skills/seo-director/routing-matrix.md` and `.agents/skills/seo-director/ownership-matrix.md` as the director control plane, and use `.agents/skills/project-intake/integration-catalog.md` plus `.agents/skills/project-intake/authorization-manifest.md` for source and authorization intake.
+Phase 3 Batches 1–3 add machine-readable contracts, read-only integrations, and deterministic specialist procedures. Validate data objects against `schemas/`, use `.agents/skills/seo-director/routing-matrix.md` and `.agents/skills/seo-director/ownership-matrix.md` as the director control plane, and use `.agents/skills/project-intake/integration-catalog.md` plus `.agents/skills/project-intake/authorization-manifest.md` for source and authorization intake. The procedure reference inside each specialist directory is authoritative when compatible approved snapshots are available.
 
 `ecommerce-seo` and `seo-implementation-qa` are reserved later-batch skill names. They are not executable until their skill directories and skill entrypoint files exist. Shopify, Merchant Center, Bing Webmaster Tools, Google Business Profile, Screaming Frog CLI, CRM, rank tracking, monitoring, scheduling, and write actions remain unimplemented.
 

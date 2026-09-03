@@ -22,13 +22,17 @@
         "editorial_quality": {"type": "integer", "minimum": 1, "maximum": 5},
         "traffic_plausibility": {"type": "integer", "minimum": 1, "maximum": 5},
         "geographic_fit": {"type": "integer", "minimum": 1, "maximum": 5},
+        "real_site_plausibility": {"type": "integer", "minimum": 1, "maximum": 5},
+        "organic_visibility_evidence": {"type": "integer", "minimum": 1, "maximum": 5},
+        "placement_relevance": {"type": "integer", "minimum": 1, "maximum": 5},
+        "manipulation_risk": {"type": "string", "enum": ["low", "medium", "high"]},
         "overall": {"type": "string", "enum": ["reject", "review", "qualified"]}
       }
     },
     "risk_flags": {"type": "array", "items": {"type": "string"}},
     "target_page": {"type": ["string", "null"]},
     "linkable_asset": {"type": ["string", "null"]},
-    "opportunity_type": {"type": "string", "enum": ["reclamation", "link-gap", "resource", "digital-pr", "partnership", "unlinked-mention", "other"]},
+    "opportunity_type": {"type": "string", "enum": ["reclamation", "lost-link-reclamation", "unlinked-mention", "broken-link", "broken-link-replacement", "resource-page", "resource", "competitor-intersect", "competitor-gap", "link-gap", "partner-association", "partnership", "expert-contribution", "digital-pr", "linkable-asset", "other"]},
     "approval_status": {"type": "string", "enum": ["not-reviewed", "approved-for-preparation", "rejected", "approved-for-human-outreach"]}
   }
 }

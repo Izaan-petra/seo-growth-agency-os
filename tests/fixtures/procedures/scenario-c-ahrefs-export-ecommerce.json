@@ -1,0 +1,22 @@
+{
+  "scenario": "ahrefs-export-ecommerce",
+  "datasets": [
+    {
+      "dataset_type": "ahrefs-keyword-ranking", "name": "keyword-export", "period": {"start_date": "2026-08-01", "end_date": "2026-08-31"},
+      "records": [
+        {"keyword": "battery sprayer", "url": "https://shop.example/products/a", "keyword_country": "US", "date": "2026-08-01", "position": 7, "volume": 1000},
+        {"keyword": "battery sprayer", "url": "https://shop.example/category/sprayers", "keyword_country": "US", "date": "2026-08-15", "position": 8, "volume": 1000},
+        {"keyword": "best battery sprayer", "url": "https://shop.example/products/a", "keyword_country": "US", "date": "2026-08-01", "position": 9, "volume": 500}
+      ]
+    },
+    {
+      "dataset_type": "ahrefs-backlink-refdomain", "name": "backlink-export",
+      "records": [
+        {"url_from": "https://publisher.example/tools", "url_to": "https://shop.example/products/a", "anchor": "battery sprayer", "topical_relevance": 5, "audience_fit": 4, "editorial_quality": 5, "traffic_plausibility": 4, "geographic_fit": 5, "resource_page": true},
+        {"url_from": "https://publisher.example/tools", "url_to": "https://shop.example/products/a", "anchor": "battery sprayer", "topical_relevance": 5},
+        {"url_from": "https://network.example/list", "url_to": "https://shop.example/products/a", "anchor": "cheap battery sprayer", "suspicious_network": true, "outbound_links": 500, "sitewide": true},
+        {"url_from": "not-a-url", "url_to": "https://shop.example/products/a"}
+      ]
+    }
+  ]
+}

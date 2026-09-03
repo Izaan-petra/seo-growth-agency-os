@@ -11,6 +11,8 @@ Improve the site's observable readiness to be accurately understood, summarized,
 
 Read `../seo-director/specialist-contract.md`. Use organization, audience, market, and evidence facts from `project-intake`. Do not promise AI citations or treat schema alone as a visibility strategy.
 
+When executing against Phase 3 snapshots, read `references/procedure.md` and use its deterministic runtime contract. Do not substitute an ad hoc analysis when compatible approved datasets are available.
+
 ## Analyze
 
 - Organization, product/service, person, location, and topic entity clarity

@@ -2,7 +2,21 @@
 
 Use this contract for every workstream delegated by `seo-director` and every result returned by a specialist skill.
 
-Phase 3 machine-readable briefs and findings validate against `../../../schemas/specialist-brief.schema.json` and `../../../schemas/specialist-finding.schema.json`. These contracts are additive in Batch 1: preserve the existing Markdown result for human review while emitting validated JSON when machine-readable output is requested.
+Phase 3 machine-readable briefs and findings validate against `../../../schemas/specialist-brief.schema.json` and `../../../schemas/specialist-finding.schema.json`. Batch 3 specialists also follow the procedure reference inside their own skill directory and emit validated domain artifacts when compatible approved snapshots are available. Preserve the existing Markdown result for human review.
+
+## Deterministic procedure envelope
+
+Every executable specialist procedure receives the project ID, director brief ID, immutable snapshots, and an explicit allowlist of approved snapshot IDs. It must:
+
+- validate snapshot identity, project ownership, supported dataset type, and non-blocking data quality before analysis;
+- preserve snapshot IDs as evidence references and preserve retrieval dates, provider timestamps, evidence tier, quality warnings, provider limitations, resource and period through the referenced snapshot;
+- fail closed when minimum viable evidence is absent, malformed, unapproved, cross-project, or outside scope;
+- skip a blocking optional input only when another allowed source satisfies minimum evidence, disclose the skip, and mark the result degraded;
+- use versioned procedure identifiers and stable content-derived IDs;
+- keep observed facts, deterministic classifications, evidence-backed inferences, recommendations, and post-change validation separate;
+- validate every generic finding and every typed artifact against `schemas/` before returning the result to `seo-director`.
+
+The procedures never collect additional evidence, broaden authorization, invent missing metrics, assign final priority, or perform an external change.
 
 ## Director brief
 
@@ -57,7 +71,7 @@ Return:
 ## Handoff notes for SEO Director
 ```
 
-Use stable workstream-prefixed IDs such as `TECH-01`, `SERP-01`, or `CONTENT-01` so the director and blueprint can preserve provenance.
+Use stable workstream-prefixed IDs such as `TECH-*`, `SERP-*`, or `CONTENT-*` so the director and blueprint can preserve provenance. Runtime IDs are deterministic hashes rendered under the same prefix; human-authored Markdown may retain sequential `##` suffixes.
 
 Impact, confidence, and effort are specialist estimates. Do not assign final priority, owner, implementation phase, budget, or roadmap position.
 

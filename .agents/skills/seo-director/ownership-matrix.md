@@ -2,9 +2,9 @@
 
 Use this matrix to prevent duplicate recommendations and conflicting specialist conclusions. The primary owner produces the canonical domain finding. Contributors add evidence or dependencies. `seo-director` remains the final conflict-resolution and execution-decision owner.
 
-Reserved skills are not executable in Batch 1. Their future fields remain owned temporarily by the listed active specialist, with the later-batch dependency disclosed.
+Reserved skills are not executable in Batch 3. Their future fields remain owned temporarily by the listed active specialist, with the later-batch dependency disclosed. Programmatic enforcement for shared Batch 3 fields is implemented in `../../../src/seo_os/procedures/ownership.py`.
 
-| Field | Primary owner | Contributing specialists | Final decision owner | Batch 1 rule |
+| Field | Primary owner | Contributing specialists | Final decision owner | Batch 3 rule |
 |---|---|---|---|---|
 | Business discovery and goals | project-intake | none | seo-director | Intake only |
 | Evidence inventory and access selection | project-intake | seo-measurement | seo-director | Intake only; specialists cannot broaden access |

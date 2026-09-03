@@ -9,7 +9,7 @@
     "schema_version": {"type": "string", "const": "1.0.0"},
     "action_id": {"type": "string", "pattern": "^CONTENT-[0-9]{2,}$"},
     "project_id": {"type": "string", "minLength": 3},
-    "action": {"type": "string", "enum": ["retain", "refresh", "consolidate", "redirect", "remove", "create"]},
+    "action": {"type": "string", "enum": ["retain", "refresh", "consolidate", "redirect", "remove", "create", "remove-noindex-candidate", "create-new", "requires-review"]},
     "url": {"type": ["string", "null"]},
     "destination_url": {"type": ["string", "null"]},
     "page_type": {"type": "string"},

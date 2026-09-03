@@ -11,6 +11,8 @@ Find technical conditions that prevent search engines and users from reliably ac
 
 Read `../seo-director/specialist-contract.md` and follow the director brief. Consume business and evidence context from `project-intake`; do not run a separate intake or assign final priorities.
 
+When executing against Phase 3 snapshots, read `references/procedure.md` and use its deterministic runtime contract. Do not substitute an ad hoc analysis when compatible approved datasets are available.
+
 ## Analyze
 
 - Minimum Google eligibility: Googlebot access, an HTTP `200` response, and indexable content; state that eligibility does not guarantee indexing

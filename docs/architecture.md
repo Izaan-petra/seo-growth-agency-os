@@ -6,7 +6,7 @@
 |---|---|---|
 | Intake | `project-intake` | Business discovery, evidence inventory, connector detection, data-access selection, export requests, and credential safety |
 | Direction | `seo-director` | Workstream selection, delegation, dependencies, prioritization, sequencing, approval gates, and execution planning |
-| Specialist execution | Focused specialist skills | Domain analysis and evidence-backed recommendations within a director brief |
+| Specialist execution | Focused specialist skills + `src/seo_os/procedures/` | Versioned, snapshot-driven domain analysis and schema-validated recommendations within a director brief |
 | Blueprint synthesis | `seo-growth-blueprint` | Combine selected specialist results into a coherent Growth Blueprint and run cross-domain QA |
 | Final planning | `seo-director` | Score, deduplicate, assign owners, phase work, and issue the execution plan |
 | Execution contracts | `schemas/` and `src/seo_os/` | Validate authorization and ingestion, run approved read-only acquisition, normalize evidence, apply quality gates, and write immutable snapshots |
@@ -58,7 +58,7 @@ New files in these directories are ignored by Git by default. Commit only saniti
 
 ## Phase 3 execution layer
 
-Phase 3 Batches 1 and 2 add contracts and a read-only evidence layer beneath the existing skill flow without changing Phase 1 or Phase 2 ownership:
+Phase 3 Batches 1–3 add contracts, a read-only evidence layer, and deterministic procedures beneath the existing skill flow without changing Phase 1 or Phase 2 ownership:
 
 ```text
 project-intake
@@ -67,10 +67,13 @@ project-intake
   -> immutable raw artifact and ingestion manifest
   -> canonical evidence, deterministic quality gate, and immutable snapshot
   -> seo-director routing matrix
-  -> existing selected specialists
+  -> selected versioned specialist procedures
+  -> schema-valid specialist findings and director handoff
 ```
 
 Batch 2 registers GSC, GA4, Ahrefs, PageSpeed Insights, CrUX, and generic tabular adapters. Every execution still requires an active Project Intake authorization grant for the exact provider, acquisition method, record type, resource, fields, and date range. Connector availability never grants access by itself.
+
+Batch 3 routes compatible immutable snapshots into the eight versioned deterministic procedures. The shared framework validates the explicit snapshot allowlist and project boundary, applies quality gates, preserves evidence references, and validates specialist outputs. The ownership matrix is executable for cross-specialist fields; the director remains responsible for conflict resolution and priority.
 
 Provider API responses are normalized into seven canonical dataset families. Specialists consume the resulting snapshot/evidence reference; they do not receive credentials or permission to recollect or expand scope. `ecommerce-seo` and `seo-implementation-qa` remain reserved names only, and there is no monitoring or external write runtime.
 

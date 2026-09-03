@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seo-agency-os"
-version = "0.4.0"
-description = "Read-only data integration layer for the SEO Agency Operating System"
+version = "0.5.0"
+description = "Read-only data integration and deterministic SEO procedure layer"
 requires-python = ">=3.11"
 dependencies = []
 

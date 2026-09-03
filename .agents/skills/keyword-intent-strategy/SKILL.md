@@ -11,6 +11,8 @@ Translate approved search evidence and business context into coherent intent clu
 
 Read `../seo-director/specialist-contract.md`. Use the audiences, markets, offerings, conversions, and evidence inventory from `project-intake`. Do not request new platform access or finalize the execution roadmap.
 
+When executing against Phase 3 snapshots, read `references/procedure.md` and use its deterministic runtime contract. Do not substitute an ad hoc analysis when compatible approved datasets are available.
+
 ## Analyze
 
 - Transactional, commercial, informational, comparison, local, branded, and conversational intent

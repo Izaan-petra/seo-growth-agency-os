@@ -4,7 +4,7 @@ This is the deterministic control plane for common engagement types. Select the 
 
 ## Skill availability
 
-Active skills in Phase 3 Batch 1:
+Active deterministic specialists in Phase 3 Batch 3:
 
 - `technical-seo`
 - `competitor-serp-analysis`
@@ -16,7 +16,7 @@ Active skills in Phase 3 Batch 1:
 - `seo-measurement`
 - `seo-growth-blueprint` for assembly only
 
-Reserved names, not executable in Batch 1:
+Reserved names, not executable in Batch 3:
 
 - `ecommerce-seo`
 - `seo-implementation-qa`
@@ -48,3 +48,5 @@ Do not route to a reserved skill until its `SKILL.md` exists and repository vali
 - `seo-growth-blueprint` is never a domain specialist; invoke it only where Blueprint required is `Yes`.
 - An unavailable preferred source lowers confidence. It blocks the bundle only when the minimum viable evidence cannot support the requested conclusion.
 - Implementation QA is a post-change gate and must not be simulated by the director or blueprint while its reserved skill is unavailable.
+- When compatible Phase 3 snapshots exist, include their explicit approved IDs in each specialist brief and require the specialist's versioned procedure output.
+- A procedure failure, skipped blocking input, degraded-mode result, or schema-validation failure returns to the director as an evidence/decision gate; it never authorizes another collection method.

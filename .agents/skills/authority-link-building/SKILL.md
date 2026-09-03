@@ -11,6 +11,8 @@ Identify credible ways to earn relevant authority, qualified referral exposure, 
 
 Read `../seo-director/specialist-contract.md`. Use only backlink, competitor, market, and target-page evidence approved by `project-intake`. Do not run a separate Ahrefs intake or contact prospects without explicit authorization.
 
+When executing against Phase 3 snapshots, read `references/procedure.md` and use its deterministic runtime contract. Do not substitute an ad hoc analysis when compatible approved datasets are available.
+
 ## Analyze
 
 - Baseline referring-domain, backlink, anchor, target-page, and new/lost patterns

@@ -11,6 +11,8 @@ Improve how existing and proposed pages satisfy search intent, demonstrate exper
 
 Read `../seo-director/specialist-contract.md`. Consume the intake record plus approved competitor, SERP, keyword, and technical inputs. Do not repeat business discovery or set the final publishing roadmap.
 
+When executing against Phase 3 snapshots, read `references/procedure.md` and use its deterministic runtime contract. Do not substitute an ad hoc analysis when compatible approved datasets are available.
+
 ## Analyze
 
 - People-first intent alignment, originality, completeness, first-hand expertise where relevant, site-purpose fit, freshness, and evidence quality

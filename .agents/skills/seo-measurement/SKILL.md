@@ -11,6 +11,8 @@ Define how the engagement will establish baselines, measure implementation, moni
 
 Read `../seo-director/specialist-contract.md`. Use business conversions, reporting needs, available platforms, and attribution constraints recorded by `project-intake`. Do not request credentials or change analytics configurations without explicit authorization.
 
+When executing against Phase 3 snapshots, read `references/procedure.md` and use its deterministic runtime contract. Do not substitute an ad hoc analysis when compatible approved datasets are available.
+
 ## Analyze
 
 - Search Console, GA4, Bing Webmaster Tools, CRM/ecommerce, rank, crawl, backlink, and field-performance coverage
